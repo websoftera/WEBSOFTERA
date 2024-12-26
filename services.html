@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Websoftera Design</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style/navbar.css" />
+  <style>
+    .bg-orange {
+      background-color: #ff6f00; /* Replace with your desired orange shade */
+    }
+
+    .my-div {
+        position: relative; /* Ensure the pseudo-element positions relative to this container */
+        background-image: url("./images/services-banner.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 500px;
+      }
+
+      .my-div::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
+        z-index: 1; /* Ensures the overlay appears above the background but below content */
+      }
+
+      /* Add styles for inner content to be above the overlay */
+      .my-div * {
+        position: relative;
+        z-index: 2;
+      }
+
+    .footer {
+      background-color: #1C2541;
+      color: #ffffff;
+      padding: 40px 20px;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      font-size: 1.5rem;
+    }
+
+    .card {
+      border: none;
+    }
+    .icon {
+      font-size: 2rem;
+      color: #28a745; /* Green color for icons */
+    }
+    .client-card {
+      border: 1px solid #28a745; /* Green border */
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .client-card img {
+      width: 100px; /* Set a fixed width */
+      height: 100px; /* Set a fixed height */
+      object-fit: contain; /* Ensure the image scales properly */
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="bg-orange text-white py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <i class="fas fa-map-marker-alt me-2"></i>C-Little Hearts, Undri/Pisoli, Pune - 411060
+      </div>
+      <div>
+        <i class="fas fa-envelope me-2"></i>foundation@websoftera.com
+        <span class="mx-3">|</span>
+        <i class="fas fa-phone me-2"></i>+91 8788316633
+        <span class="ms-3">
+          <i class="fab fa-facebook me-2"></i>
+          <i class="fab fa-instagram"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="./images/websoftera-logo.png" alt="Logo" width="200" height="70" />
+      </a>
+      <!-- Toggler Button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="career.html">Career</a>
+          </li>
+        </ul>
+        <!-- Request Quote Button -->
+        <a
+          href="request-quote.html"
+          class="btn btn-success ms-lg-3 mt-2 mt-lg-0"
+        >
+          Request Quote
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="my-div">
+  <div class="container">
+      <h1 class="text-center fw-bold text-white" style="padding-top: 250px;">Services</h1>
+    </div>
+    <div class="container">
+      <h4 class="text-center text-white">Expert Website Development Services by Websoftera</h4>
+    </div>
+    <div class="container">
+      <p class="text-center text-white mb-2">
+        At Websoftera, we specialize in crafting dynamic, responsive, and SEO-optimized
+      </p>
+      <p class="text-center text-white mb-2">
+        websites. Our professional development solutions are designed to enhance your
+      </p>
+      <p class="text-center text-white mb-2">
+        online presence, drive business growth, and deliver exceptional user experiences.
+      </p>
+    </div>                                   
+</div>
+
+
+
+  
+
+<div class="container py-5">
+  <div class="row g-4">
+    <div class="col-sm-6 col-lg-4">
+      <div class="card text-center shadow-sm p-4">
+          <div class="icon" style="color: #3498db; font-size: 2.5rem;">💻</div>
+        <!-- <div class="icon mb-3">💻</div> -->
+        <h5 class="card-title">Website Development</h5>
+        <p class="card-text">
+          A forward-thinking and creative website design agency in Pune, delivering innovative, reliable, sustainable, and user-friendly designs tailored to empower businesses.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="card text-center shadow-sm p-4">
+        <div class="icon mb-3">🌐</div>
+        <h5 class="card-title">WordPress Website Development</h5>
+        <p class="card-text">
+          Our skilled WordPress development team specializes in crafting efficient, custom themes and plugins tailored to your needs.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="card text-center shadow-sm p-4">
+        <div class="icon mb-3">📱</div>
+        <h5 class="card-title">Mobile App Development</h5>
+        <p class="card-text">
+          We develop scalable Android and iOS apps optimized for performance and discoverability. Our mobile solutions enhance user engagement and meet business needs.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="card text-center shadow-sm p-4">
+        <div class="icon mb-3">💡</div>
+        <h5 class="card-title">Digital Marketing Services</h5>
+        <p class="card-text">
+          A forward-thinking and creative website design agency in Pune, delivering innovative, reliable, sustainable, user-friendly, responsive, scalable, tailored designs to empower businesses
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="card text-center shadow-sm p-4">
+        <div class="icon mb-3">🖥️</div>
+        <h5 class="card-title">Software/Website Training</h5>
+        <p class="card-text">
+          Master full-stack development with training in React, Node.js, and more. Our hands-on courses build skills for high-demand IT career
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="card text-center shadow-sm p-4">
+        <div class="icon mb-3">⚙️</div>
+        <h5 class="card-title">ERP Solutions</h5>
+        <p class="card-text">
+          Optimize business operations with tailored ERP systems offering automation, real-time insights, and seamless integration to improve efficiency.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+
+  <section class="py-5">
+    <div class="container text-center">
+      <h2 class="section-title">Our Client</h2>
+      <p class="section-subtitle">
+        We take pride in delivering exceptional services that exceed expectations, earning the trust of our valued customers. Their success inspires us to continue providing innovative and tailored solutions.
+        Join our community of satisfied clients and experience the difference today!
+      </p>
+      <div class="row gy-4">
+        <!-- Client 1 -->
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="client-card">
+            <img src="./images/Nova-Impex-Logo-768x660.png" alt="Client Logo">
+            <h6 class="mt-2">Nova Impex</h6>
+          </div>
+        </div>
+        <!-- Client 2 -->
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="client-card">
+            <img src="./images/Skyline-Logo_PNG-01-300x117-1.webp" alt="Client Logo">
+            <h6 class="mt-2">Skyline</h6>
+          </div>
+        </div>
+        <!-- Client 3 -->
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="client-card">
+            <img src="./images/cropped-BRENDS-LOGO-RED-ON-Black-02.png" alt="Client Logo">
+            <h6 class="mt-2">Brends</h6>
+          </div>
+        </div>
+        <!-- Client 4 -->
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="client-card">
+            <img src="./images/trinity-logo.png" alt="Client Logo">
+            <h6 class="mt-2">Trinity</h6>
+          </div>
+        </div>
+        <!-- Client 5 -->
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="client-card">
+            <img src="./images/vbdigitech.jpeg" alt="Client Logo">
+            <h6 class="mt-2">VB Digitech</h6>
+          </div>
+        </div>
+        <!-- Client 6 -->
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="client-card">
+            <img src="./images/trinity-logo.png" alt="Client Logo">
+            <h6 class="mt-2">Trinity</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- About -->
+        <div class="col-md-4">
+          <img src="./images/websoftera-logo.png" alt="Logo" width="150">
+          <p class="mt-3">
+            Empower your business with Websoftera! Trusted by startups, enterprises, and organizations, we bring your vision to life with tailored solutions. Partner with us, and let’s achieve success together.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <!-- Company -->
+        <div class="col-md-2">
+          <h5>Company</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+        <!-- Business -->
+        <div class="col-md-2">
+          <h5>Business</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Project</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Facts</a></li>
+            <li><a href="#">Customers</a></li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div class="col-md-4">
+          <h5>Get In Touch</h5>
+          <p>Address: C-Little Hearts, Undri/Pisoli, Pune - 411060</p>
+          <p>Email: <a href="mailto:foundation@websoftera.com">foundation@websoftera.com</a></p>
+          <p>Phone: <a href="tel:+918788316633">+91 8788316633</a></p>
+          <p>Phone: <a href="tel:+917709236006">+91 7709236006</a></p>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <p>Copyright © 2024 WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND MARKETING PRIVATE LIMITED Powered by WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND MARKETING PRIVATE LIMITED</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
