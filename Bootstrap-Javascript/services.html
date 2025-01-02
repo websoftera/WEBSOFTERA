@@ -13,53 +13,58 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style/navbar.css" />
+    <link rel="icon" href="./images/websoftera-logo.png" />
     <style>
       .bg-orange {
         background-color: #ff6f00;
-        /* Replace with your desired orange shade */
       }
+
+      .nav-link:hover {
+      color: #f39c12;
+      text-decoration: underline;
+    }
+
+
+    .nav-link.active {
+      color: #27ae60;
+      font-weight: bold;
+    }
 
       .navbar-nav .nav-item {
         margin: 0 10px;
-        /* Adds horizontal spacing between each navigation item */
       }
 
       .navbar-nav .nav-link {
         font-size: 1.25rem;
-        /* Optional: Increase font size */
         padding: 0.5rem 1rem;
-        /* Optional: Adjust padding for larger clickable area */
       }
 
       .my-div {
         position: relative;
-        /* Ensure the pseudo-element positions relative to this container */
         background-image: url("./images/about.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: 550px;
+        height: 500px;
       }
 
       .my-div::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        /* Transparent black */
-        z-index: 1;
-        /* Ensures the overlay appears above the background but below content */
-      }
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 20, 0, 0.7); 
+    z-index: 1; 
+}
+
 
       .my-custom-heading {
         font-size: 50px;
-        /* Set font size in pixels */
       }
 
-      /* Add styles for inner content to be above the overlay */
+    
       .my-div * {
         position: relative;
         z-index: 2;
@@ -143,22 +148,18 @@
         border-radius: 10px;
         padding: 20px;
         text-align: center;
-        /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);     */
-        /* transition: transform 0.2s, box-shadow 0.2s; */
+      
       }
 
       .client-card:hover {
         transform: translateY(-5px);
-        /* box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); */
+   
       }
 
       .client-card img {
-        width: 100px;
-        /* Set a fixed width */
+        width: 100px;    
         height: 100px;
-        /* Set a fixed height */
         object-fit: contain;
-        /* Ensure the image scales properly */
         margin-bottom: 15px;
       }
 
@@ -364,12 +365,10 @@
 
       .navbar-collapse.bg-white {
         background-color: white !important;
-        /* Apply white background */
       }
 
       .navbar-collapse.shadow {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        /* Optional: Adds a subtle shadow */
       }
 
       .green-text {
@@ -378,7 +377,7 @@
 
       .custom-button:active {
         color: orange;
-        /* Change text color to orange when the link is clicked */
+        
       }
 
       .card-title {
@@ -393,7 +392,7 @@
 
       #consultationForm input.form-control,
       #consultationForm textarea.form-control {
-        background-color: #f1f1f1; /* Grey background */
+        background-color: #f1f1f1; 
       }
 
       /* Add space between input fields */
@@ -421,12 +420,132 @@
       .carousel-control-next-icon {
         background-color: black; /* Change carousel controls to black if needed */
       }
+
+      .list-unstyled a {
+      display: block; /* Makes the link behave like a block element */
+      margin-bottom: 10px; /* Adds spacing below each link */
+      color: white; /* Optional: Sets link color */
+      text-decoration: none; /* Removes underline */
+    }
+
+    .list-unstyled a:hover {
+      color: #007bff; /* Optional: Change color on hover */
+    }
+
+    .floating-menu {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-menu .btn {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-menu .btn i {
+      font-size: 24px;
+    }
+
+    .bg-orange {
+  background-color: #ff6600;
+}
+
+.container {
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.me-2 {
+  margin-right: 8px;
+}
+
+.ms-3 {
+  margin-left: 12px;
+}
+
+.mx-3 {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* Styles for mobile and tablet screens */
+@media (max-width: 768px) {
+  .container {
+    text-align: center;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mx-3 {
+    margin: 10px 0;
+  }
+
+  .me-2 {
+    margin-right: 0;
+  }
+
+  .ms-3 {
+    margin-left: 0;
+  }
+
+  .fab {
+    font-size: 24px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .fab {
+    font-size: 20px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container i {
+    font-size: 18px;
+  }
+}
+
     </style>
   </head>
   <body>
     <!-- Top Bar -->
     <div class="bg-orange text-white py-2">
-      <div class="container d-flex justify-content-between align-items-center">
+      <div
+        class="container d-flex justify-content-between align-items-center flex-wrap">
         <div>
           <i class="fas fa-map-marker-alt me-2"></i>C-Little Hearts,
           Undri/Pisoli, Pune - 411060
@@ -436,8 +555,16 @@
           <span class="mx-3">|</span>
           <i class="fas fa-phone me-2"></i>+91 8788316633
           <span class="ms-3">
-            <i class="fab fa-facebook me-2"></i>
-            <i class="fab fa-instagram"></i>
+            <a
+              class="fab fa-facebook me-2"
+              style="color: #f1ffe6"
+              href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"
+            ></a>
+            <a
+              class="fab fa-instagram"
+              style="color: #f1ffe6"
+              href="https://www.instagram.com/websoftera/?hl=en"
+            ></a>
           </span>
         </div>
       </div>
@@ -448,70 +575,94 @@
       <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="index.html">
-          <img
-            src="./images/websoftera-logo.png"
-            alt="Logo"
-            width="200"
-            height="70"
-          />
+          <img src="./images/websoftera-logo.png" alt="Logo" width="200" height="70" />
         </a>
         <!-- Toggler Button -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          id="navbar-toggler"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbar-toggler">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Navbar Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto text-center">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
+              <a class="nav-link" href="index.html" id="home-link">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="about.html" id="about-link">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
+              <a class="nav-link" href="services.html" id="services-link">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="contact.html" id="contact-link">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="career.html">Career</a>
+              <a class="nav-link" href="career.html" id="career-link">Career</a>
             </li>
           </ul>
-
-          <!-- Request Quote Button -->
-          <a
-            href="Contact.html"
-            class="btn btn-success ms-3"
-            id="request-quote-btn"
-            style="
+        </div>
+        <!-- Request Quote Button (visible on large screens only) -->
+        <a href="Contact.html" class="btn btn-success ms-3 d-none d-lg-block" id="request-quote-btn" style="
               height: 50px;
               width: 200px;
               font-size: 20px;
               text-transform: uppercase;
-            "
-          >
-            Request Quote
-          </a>
-        </div>
+            ">
+          Request Quote
+        </a>
       </div>
     </nav>
+    
+
+  <!-- Bootstrap JS and Custom Script -->
+  <script>
+    const togglerButton = document.getElementById("navbar-toggler");
+    const navbarCollapse = document.getElementById("navbarNav");
+    const icon = togglerButton.querySelector(".navbar-toggler-icon");
+
+    togglerButton.addEventListener("click", function () {
+      // Check if the menu is expanding or collapsing
+      const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+      // Toggle the icon to cross or hamburger
+      if (isExpanded) {
+        icon.style.backgroundImage = 'url("./images/cross.png")'; // Set cross icon
+        icon.style.backgroundSize = "contain";
+        icon.style.backgroundRepeat = "no-repeat";
+        icon.style.width = "30px"; // Adjust size if needed
+        icon.style.height = "30px"; // Adjust size if needed
+
+        // Add white background to navbar menu when opened
+        navbarCollapse.classList.add("bg-white");
+        navbarCollapse.classList.add("shadow"); // Optional: Adds a shadow effect
+
+        // Change text color of navbar links to black
+        const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.style.color = "black"; // Change text color to black when menu is expanded
+        });
+      } else {
+        icon.style.backgroundImage = ""; // Reset to hamburger icon
+
+        // Remove white background when menu is collapsed
+        navbarCollapse.classList.remove("bg-white");
+        navbarCollapse.classList.remove("shadow");
+
+        // Reset text color of navbar links back to default (white)
+        const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.style.color = ""; // Reset color to default
+        });
+      }
+    });
+  </script>
 
     <div class="my-div">
       <div class="container">
         <h1
           class="text-center fw-bold text-white"
-          style="padding-top: 150px; font-size: 60px"
-        >
+          style="padding-top: 100px; font-size: 60px">
           Services
         </h1>
       </div>
@@ -953,13 +1104,23 @@
       </div>
     </div>
 
+    <div class="floating-menu">
+      <a href="https://wa.me/1234567890" target="_blank" class="btn btn-success">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+        <i class="fas fa-envelope"></i>
+      </button>
+    </div>
+
+
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="row">
           <!-- About -->
           <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <img src="./images/websoftera-logo.png" alt="Logo" width="220" height="100"/>
+            <img src="./images/websoftera-logo.png" alt="Logo" width="220" height="100" />
             <p class="mt-3">
               Empower your business with Websoftera!<br>
               Trusted by startups,<br>
@@ -968,22 +1129,23 @@
               tailored solutions.<br>
               Partner with us, and let’s achieve success together.
             </p>
-            
+
             <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+              <a
+                href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"><i
+                  class="fab fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/websoftera/?hl=en"><i class="fab fa-instagram"></i></a>            </div>
           </div>
 
           <!-- Company -->
           <div class="col-6 col-md-2 mb-4 mb-md-0">
             <h5>Company</h5>
             <ul class="list-unstyled">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Career</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+              <li><a href="Career.html">Career</a></li>
             </ul>
           </div>
 
@@ -1022,11 +1184,11 @@
         </div>
         <div class="text-center mt-4">
           <hr style="
-              border-top: 2px solid rgba(255, 255, 255, 0.984);
-              width: 100%;
-              margin: 0;
-              padding-top: 30px;
-            " />
+            border-top: 2px solid rgba(255, 255, 255, 0.984);
+            width: 100%;
+            margin: 0;
+            padding-top: 30px;
+          " />
           <p>
             Copyright © 2024 WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND
             MARKETING PRIVATE LIMITED Powered by WEBSOFTERA IT SERVICES AND

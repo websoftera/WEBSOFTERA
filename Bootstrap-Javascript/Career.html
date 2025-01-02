@@ -1,95 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Websoftera Design</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="style/navbar.css" />
-  <style>
-    .bg-orange {
-      background-color: #ff6f00; /* Replace with your desired orange shade */
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websoftera Design</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style/navbar.css" />
+    <link rel="icon" href="./images/websoftera-logo.png" />
+    <style>
+      .bg-orange {
+        background-color: #ff6f00; 
+      }
 
-    .navbar-nav .nav-item {
-        margin: 0 10px; /* Adds horizontal spacing between each navigation item */
+      .nav-link:hover {
+        color: #f39c12;
+
+        text-decoration: underline;
+      }
+
+      .nav-link.active {
+        color: #27ae60;   
+        font-weight: bold;
+      }
+
+      .navbar-nav .nav-item {
+        margin: 0 10px; 
       }
 
       .navbar-nav .nav-link {
-        font-size: 1.25rem; /* Optional: Increase font size */
-        padding: 0.5rem 1rem; /* Optional: Adjust padding for larger clickable area */
+        font-size: 1.25rem;
+        padding: 0.5rem 1rem; 
       }
 
-   
+      .footer {
+        background-color: #1c2541;
+        color: #ffffff;
+        padding: 40px 20px;
+        margin-top: 80px;
+      }
 
-    .footer {
-      background-color: #1C2541;
-      color: #ffffff;
-      padding: 40px 20px;
-      margin-top: 80px;
-    }
+      .footer a {
+        color: #ffffff;
+        text-decoration: none;
+      }
 
-    .footer a {
-      color: #ffffff;
-      text-decoration: none;
-    }
+      .footer a:hover {
+        text-decoration: underline;
+      }
 
-    .footer a:hover {
-      text-decoration: underline;
-    }
+      .social-icons a {
+        margin-right: 15px;
+        font-size: 1.5rem;
+      }
 
-    .social-icons a {
-      margin-right: 15px;
-      font-size: 1.5rem;
-    }
+      .card {
+        border: none;
+      }
+      .icon {
+        font-size: 2rem;
+        color: #28a745; 
+      }
 
-    .card {
-      border: none;
-    }
-    .icon {
-      font-size: 2rem;
-      color: #28a745; /* Green color for icons */
-    }
+      .job-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        background: #fff;
+        transition: transform 0.3s;
+      }
+      .job-card:hover {
+        transform: translateY(-5px);
+      }
+      .job-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+      }
+      .job-details {
+        font-size: 0.9rem;
+        color: #666;
+      }
+      .more-details {
+        color: #28a745;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .more-details:hover {
+        text-decoration: underline;
+      }
+      .job-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
 
-    .job-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            background: #fff;
-            transition: transform 0.3s;
-        }
-        .job-card:hover {
-            transform: translateY(-5px);
-        }
-        .job-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #333;
-        }
-        .job-details {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        .more-details {
-            color: #28a745;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .more-details:hover {
-            text-decoration: underline;
-        }
-        .job-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .my-div {
-        position: relative; /* Ensure the pseudo-element positions relative to this container */
+      .my-div {
+        position: relative;
         background-image: url("./images/career.webp");
         background-size: cover;
         background-position: center;
@@ -104,260 +117,530 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
-        z-index: 1; /* Ensures the overlay appears above the background but below content */
+        background-color: red (0, 0, 0, 0.5); 
+        z-index: 1;
+        pointer-events: none;
       }
 
-      /* Add styles for inner content to be above the overlay */
       .my-div * {
         position: relative;
         z-index: 2;
       }
-  </style>
-</head>
-<body>
-  <!-- Top Bar -->
-  <div class="bg-orange text-white py-2">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div>
-        <i class="fas fa-map-marker-alt me-2"></i>C-Little Hearts, Undri/Pisoli, Pune - 411060
-      </div>
-      <div>
-        <i class="fas fa-envelope me-2"></i>foundation@websoftera.com
-        <span class="mx-3">|</span>
-        <i class="fas fa-phone me-2"></i>+91 8788316633
-        <span class="ms-3">
-          <i class="fab fa-facebook me-2"></i>
-          <i class="fab fa-instagram"></i>
-        </span>
+      .list-unstyled a {
+        display: block; 
+        margin-bottom: 10px; 
+        color: white; 
+        text-decoration: none; 
+      }
+
+      .list-unstyled a:hover {
+        color: #007bff; 
+      }
+
+      .btn-success {
+        background-color: rgb(84, 180, 53);
+        border-color: rgb(84, 180, 53);
+      }
+
+      @media (max-width: 768px) {
+        .navbar-nav {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar-brand img {
+          width: 150px;
+          height: auto;
+        }
+      }
+
+      .floating-menu {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .floating-menu .btn {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .floating-menu .btn i {
+        font-size: 24px;
+      }
+
+      .bg-orange {
+        background-color: #ff6600;
+      }
+
+      .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .d-flex {
+        display: flex;
+      }
+
+      .justify-content-between {
+        justify-content: space-between;
+      }
+
+      .align-items-center {
+        align-items: center;
+      }
+
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+
+      .me-2 {
+        margin-right: 8px;
+      }
+
+      .ms-3 {
+        margin-left: 12px;
+      }
+
+      .mx-3 {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+
+   
+      @media (max-width: 768px) {
+        .container {
+          text-align: center;
+        }
+
+        .d-flex {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .mx-3 {
+          margin: 10px 0;
+        }
+
+        .me-2 {
+          margin-right: 0;
+        }
+
+        .ms-3 {
+          margin-left: 0;
+        }
+
+        .fab {
+          font-size: 24px;
+          margin: 10px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .fab {
+          font-size: 20px;
+        }
+
+        .d-flex {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .container i {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="bg-orange text-white py-2">
+      <div
+        class="container d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+          <i class="fas fa-map-marker-alt me-2"></i>C-Little Hearts,
+          Undri/Pisoli, Pune - 411060
+        </div>
+        <div>
+          <i class="fas fa-envelope me-2"></i>foundation@websoftera.com
+          <span class="mx-3">|</span>
+          <i class="fas fa-phone me-2"></i>+91 8788316633
+          <span class="ms-3">
+            <a
+              class="fab fa-facebook me-2"
+              style="color: #f1ffe6"
+              href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"
+            ></a>
+            <a
+              class="fab fa-instagram"
+              style="color: #f1ffe6"
+              href="https://www.instagram.com/websoftera/?hl=en"
+            ></a>
+          </span>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand" href="index.html">
-        <img src="./images/websoftera-logo.png" alt="Logo" width="200" height="70" />
-      </a>
-      <!-- Toggler Button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbar-toggler">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto text-center">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="career.html">Career</a>
-          </li>
-        </ul>
-
-        <!-- Request Quote Button -->
-        <a href="Contact.html" class="btn btn-success ms-3" id="request-quote-btn" style="
-              height: 50px;
-              width: 200px;
-              font-size: 20px;
-              text-transform: uppercase;
-            ">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="./images/websoftera-logo.png"
+            alt="Logo"
+            width="200"
+            height="70"
+          />
+        </a>
+        <!-- Toggler Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          id="navbar-toggler"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" id="home-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" id="about-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html" id="services-link"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" id="contact-link"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="career.html" id="career-link">Career</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Request Quote Button (visible on large screens only) -->
+        <a
+          href="Contact.html"
+          class="btn btn-success ms-3 d-none d-lg-block"
+          id="request-quote-btn"
+          style="
+            height: 50px;
+            width: 200px;
+            font-size: 20px;
+            text-transform: uppercase;
+          "
+        >
           Request Quote
         </a>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="my-div">
-    <div class="container">
-      <!-- <h1 class="text-center fw-bold text-white" style="padding-top: 210px;">Career</h1> -->
-    </div>
-  </div>
+    <!-- Bootstrap JS and Custom Script -->
+    <script>
+      const togglerButton = document.getElementById("navbar-toggler");
+      const navbarCollapse = document.getElementById("navbarNav");
+      const icon = togglerButton.querySelector(".navbar-toggler-icon");
 
-  <div class="container py-5">
-        <h1 class="text-center mb-5" style="color: #28a745;">Job Openings</h1>
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <select class="form-select" id="categoryFilter">
-                    <option value="all" selected>All Career Categories</option>
-                    <option value="laravel">Laravel Developer</option>
-                    <option value="wordpress">WordPress Developer</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" id="typeFilter">
-                    <option value="all" selected>All Career Types</option>
-                    <option value="full-time">Full Time</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" id="locationFilter">
-                    <option value="all" selected>All Career Locations</option>
-                    <option value="remote">Remote</option>
-                </select>
-            </div>
+      togglerButton.addEventListener("click", function () {
+        // Check if the menu is expanding or collapsing
+        const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+        // Toggle the icon to cross or hamburger
+        if (isExpanded) {
+          icon.style.backgroundImage = 'url("./images/cross.png")'; // Set cross icon
+          icon.style.backgroundSize = "contain";
+          icon.style.backgroundRepeat = "no-repeat";
+          icon.style.width = "30px"; // Adjust size if needed
+          icon.style.height = "30px"; // Adjust size if needed
+
+          // Add white background to navbar menu when opened
+          navbarCollapse.classList.add("bg-white");
+          navbarCollapse.classList.add("shadow"); // Optional: Adds a shadow effect
+
+          // Change text color of navbar links to black
+          const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+          navLinks.forEach((link) => {
+            link.style.color = "black"; // Change text color to black when menu is expanded
+          });
+        } else {
+          icon.style.backgroundImage = ""; // Reset to hamburger icon
+
+          // Remove white background when menu is collapsed
+          navbarCollapse.classList.remove("bg-white");
+          navbarCollapse.classList.remove("shadow");
+
+          // Reset text color of navbar links back to default (white)
+          const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+          navLinks.forEach((link) => {
+            link.style.color = ""; // Reset color to default
+          });
+        }
+      });
+    </script>
+
+    <div class="my-div">
+      <div class="container">
+        <!-- <h1 class="text-center fw-bold text-white" style="padding-top: 210px;">Career</h1> -->
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <h1 class="text-center mb-5" style="color: #28a745">Job Openings</h1>
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <select class="form-select" id="categoryFilter">
+            <option value="all" selected>All Career Categories</option>
+            <option value="laravel">Laravel Developer</option>
+            <option value="wordpress">WordPress Developer</option>
+          </select>
         </div>
-        <div class="row g-4" id="jobCardsContainer">
-            <div class="col-md-6 col-lg-4 job-card-container" data-category="wordpress" data-type="full-time" data-location="remote">
-                <div class="job-card">
-                    <img src="./images/wordpress.jpeg" class="img-fluid rounded mb-3" alt="WordPress Developer">
-                    <h2 class="job-title">WordPress Developer Intern</h2>
-                    <ul class="job-details list-unstyled">
-                        <li>✿ WordPress Developer</li>
-                        <li>💡 Full Time</li>
-                        <li>🎨 Remote</li>
-                    </ul>
-                    <a href="#" class="more-details">More Details ➔</a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 job-card-container" data-category="laravel" data-type="full-time" data-location="remote">
-                <div class="job-card">
-                    <img src="./images/larawel.jpeg" class="img-fluid rounded mb-3" alt="Laravel Developer">
-                    <h2 class="job-title">Laravel Developer Intern</h2>
-                    <ul class="job-details list-unstyled">
-                        <li>✿ Laravel Developer</li>
-                        <li>💡 Full Time</li>
-                        <li>🎨 Remote</li>
-                    </ul>
-                    <a href="#" class="more-details">More Details ➔</a>
-                </div>
-            </div>
+        <div class="col-md-4">
+          <select class="form-select" id="typeFilter">
+            <option value="all" selected>All Career Types</option>
+            <option value="full-time">Full Time</option>
+          </select>
         </div>
+        <div class="col-md-4">
+          <select class="form-select" id="locationFilter">
+            <option value="all" selected>All Career Locations</option>
+            <option value="remote">Remote</option>
+          </select>
+        </div>
+      </div>
+      <div class="row g-4" id="jobCardsContainer">
+        <div
+          class="col-md-6 col-lg-4 job-card-container"
+          data-category="wordpress"
+          data-type="full-time"
+          data-location="remote"
+        >
+          <div class="job-card">
+            <img
+              src="./images/wordpress.jpeg"
+              class="img-fluid rounded mb-3"
+              alt="WordPress Developer"
+            />
+            <h2 class="job-title">WordPress Developer Intern</h2>
+            <ul class="job-details list-unstyled">
+              <li>✿ WordPress Developer</li>
+              <li>💡 Full Time</li>
+              <li>🎨 Remote</li>
+            </ul>
+            <a href="#" class="more-details">More Details ➔</a>
+          </div>
+        </div>
+        <div
+          class="col-md-6 col-lg-4 job-card-container"
+          data-category="laravel"
+          data-type="full-time"
+          data-location="remote"
+        >
+          <div class="job-card">
+            <img
+              src="./images/larawel.jpeg"
+              class="img-fluid rounded mb-3"
+              alt="Laravel Developer"
+            />
+            <h2 class="job-title">Laravel Developer Intern</h2>
+            <ul class="job-details list-unstyled">
+              <li>✿ Laravel Developer</li>
+              <li>💡 Full Time</li>
+              <li>🎨 Remote</li>
+            </ul>
+            <a href="#" class="more-details">More Details ➔</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const categoryFilter = document.getElementById('categoryFilter');
-            const typeFilter = document.getElementById('typeFilter');
-            const locationFilter = document.getElementById('locationFilter');
-            const jobCardsContainer = document.getElementById('jobCardsContainer');
+      document.addEventListener("DOMContentLoaded", () => {
+        const categoryFilter = document.getElementById("categoryFilter");
+        const typeFilter = document.getElementById("typeFilter");
+        const locationFilter = document.getElementById("locationFilter");
+        const jobCardsContainer = document.getElementById("jobCardsContainer");
 
-            const filterCards = () => {
-                const category = categoryFilter.value;
-                const type = typeFilter.value;
-                const location = locationFilter.value;
+        const filterCards = () => {
+          const category = categoryFilter.value;
+          const type = typeFilter.value;
+          const location = locationFilter.value;
 
-                const jobCards = jobCardsContainer.querySelectorAll('.job-card-container');
-                jobCards.forEach(card => {
-                    const matchesCategory = category === 'all' || card.dataset.category === category;
-                    const matchesType = type === 'all' || card.dataset.type === type;
-                    const matchesLocation = location === 'all' || card.dataset.location === location;
+          const jobCards = jobCardsContainer.querySelectorAll(
+            ".job-card-container"
+          );
+          jobCards.forEach((card) => {
+            const matchesCategory =
+              category === "all" || card.dataset.category === category;
+            const matchesType = type === "all" || card.dataset.type === type;
+            const matchesLocation =
+              location === "all" || card.dataset.location === location;
 
-                    if (matchesCategory && matchesType && matchesLocation) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            };
+            if (matchesCategory && matchesType && matchesLocation) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        };
 
-            categoryFilter.addEventListener('change', filterCards);
-            typeFilter.addEventListener('change', filterCards);
-            locationFilter.addEventListener('change', filterCards);
+        categoryFilter.addEventListener("change", filterCards);
+        typeFilter.addEventListener("change", filterCards);
+        locationFilter.addEventListener("change", filterCards);
 
-            // Trigger initial filter to ensure all cards are displayed on load
-            filterCards();
-        });
+        // Trigger initial filter to ensure all cards are displayed on load
+        filterCards();
+      });
     </script>
 
+    <div class="floating-menu">
+      <a
+        href="https://wa.me/1234567890"
+        target="_blank"
+        class="btn btn-success"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <button
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#inquiryModal"
+      >
+        <i class="fas fa-envelope"></i>
+      </button>
+    </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- About -->
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <img
+              src="./images/websoftera-logo.png"
+              alt="Logo"
+              width="220"
+              height="100"
+            />
+            <p class="mt-3">
+              Empower your business with Websoftera!<br />
+              Trusted by startups,<br />
+              enterprises, and organizations,<br />
+              we bring your vision to life with<br />
+              tailored solutions.<br />
+              Partner with us, and let’s achieve success together.
+            </p>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <!-- About -->
-        <div class="col-12 col-md-4 mb-4 mb-md-0">
-          <img src="./images/websoftera-logo.png" alt="Logo" width="220" height="100"/>
-          <p class="mt-3">
-            Empower your business with Websoftera!<br>
-            Trusted by startups,<br>
-            enterprises, and organizations,<br>
-            we bring your vision to life with<br>
-            tailored solutions.<br>
-            Partner with us, and let’s achieve success together.
-          </p>
-          
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="https://www.instagram.com/websoftera/?hl=en"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Company -->
+          <div class="col-6 col-md-2 mb-4 mb-md-0">
+            <h5>Company</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+              <li><a href="Career.html">Career</a></li>
+            </ul>
+          </div>
+
+          <!-- Business -->
+          <div class="col-6 col-md-2 mb-4 mb-md-0">
+            <h5>Business</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Project</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Facts</a></li>
+              <li><a href="#">Customers</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <h5>Get In Touch</h5>
+            <p>
+              Address:
+              <span
+                >C-Little Hearts,<br />
+                Undri/Pisoli,Pune - 411060</span
+              >
+            </p>
+            <p>
+              Email:
+              <a
+                style="color: rgb(84, 180, 53)"
+                href="mailto:foundation@websoftera.com"
+                >foundation@websoftera.com</a
+              >
+            </p>
+            <p>
+              Phone:
+              <a style="color: rgb(84, 180, 53)" href="tel:+918788316633"
+                >+91 8788316633</a
+              >
+            </p>
+            <p>
+              Phone:
+              <a style="color: rgb(84, 180, 53)" href="tel:+917709236006"
+                >+91 7709236006</a
+              >
+            </p>
           </div>
         </div>
-
-        <!-- Company -->
-        <div class="col-6 col-md-2 mb-4 mb-md-0">
-          <h5>Company</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Career</a></li>
-          </ul>
-        </div>
-
-        <!-- Business -->
-        <div class="col-6 col-md-2 mb-4 mb-md-0">
-          <h5>Business</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Project</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Facts</a></li>
-            <li><a href="#">Customers</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div class="col-12 col-md-4 mb-4 mb-md-0">
-          <h5>Get In Touch</h5>
+        <div class="text-center mt-4">
+          <hr
+            style="
+              border-top: 2px solid rgba(255, 255, 255, 0.984);
+              width: 100%;
+              margin: 0;
+              padding-top: 30px;
+            "
+          />
           <p>
-            Address:
-            <span>C-Little Hearts,<br />
-              Undri/Pisoli,Pune - 411060</span>
-          </p>
-          <p>
-            Email:
-            <a style="color: rgb(84, 180, 53)" href="mailto:foundation@websoftera.com">foundation@websoftera.com</a>
-          </p>
-          <p>
-            Phone:
-            <a style="color: rgb(84, 180, 53)" href="tel:+918788316633">+91 8788316633</a>
-          </p>
-          <p>
-            Phone:
-            <a style="color: rgb(84, 180, 53)" href="tel:+917709236006">+91 7709236006</a>
+            Copyright © 2024 WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND
+            MARKETING PRIVATE LIMITED Powered by WEBSOFTERA IT SERVICES AND
+            SOFTWARE DEVELOPMENT AND MARKETING PRIVATE LIMITED
           </p>
         </div>
       </div>
-      <div class="text-center mt-4">
-        <hr style="
-            border-top: 2px solid rgba(255, 255, 255, 0.984);
-            width: 100%;
-            margin: 0;
-            padding-top: 30px;
-          " />
-        <p>
-          Copyright © 2024 WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND
-          MARKETING PRIVATE LIMITED Powered by WEBSOFTERA IT SERVICES AND
-          SOFTWARE DEVELOPMENT AND MARKETING PRIVATE LIMITED
-        </p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
-
-

@@ -7,10 +7,26 @@
   <title>Websoftera Design</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="./images/websoftera-logo.png" />
   <style>
-    .bg-orange {
+   .bg-orange {
       background-color: #ff6f00;
       /* Replace with your desired orange shade */
+    }
+
+    .nav-link:hover {
+      color: #f39c12;
+      /* Change the color when hovered */
+      text-decoration: underline;
+      /* Optional: underline on hover */
+    }
+
+    /* Highlight the active link */
+    .nav-link.active {
+      color: #27ae60;
+      /* Highlight color for the active page */
+      font-weight: bold;
+      /* Optional: Make the active page bold */
     }
 
     .navbar-nav .nav-item {
@@ -27,25 +43,22 @@
 
     .my-div {
       position: relative;
-      /* Ensure the pseudo-element positions relative to this container */
       background-image: url("./images/about.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 550px;
+      height: 500px;
     }
 
     .my-div::before {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      /* Transparent black */
-      z-index: 1;
-      /* Ensures the overlay appears above the background but below content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 20, 0, 0.7); /* Green with 70% opacity */
+    z-index: 1;
     }
 
     .my-custom-heading {
@@ -256,7 +269,7 @@
     /* form */
 
     .form-section {
-      background: #ffffff;
+      /* background: #ffffff; */
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -265,7 +278,7 @@
     }
 
     .form-title {
-
+      
       font-style: normal;
       font-weight: 600;
       font-size: 28px;
@@ -307,16 +320,16 @@
       text-decoration: none;
     }
 
-    .contact-details .phone-number {
-      font-size: 40px;
-      font-weight: 500;
+     .phone-number {
+      font-weight: bold;
       color: rgb(84, 180, 53);
     }
 
-    .phone-number-text {
+    .call-us-text {
       font-size: 25px;
       font-weight: 500;
       color: black;
+      padding-top: 50px;
     }
 
     .contact-icon {
@@ -383,60 +396,185 @@
     }
 
     .spacing-between {
-      margin-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+#consultationForm input.form-control,
+#consultationForm textarea.form-control {
+  background-color: #f1f1f1; /* Grey background */
+}
+
+/* Add space between input fields */
+.custom-carousel-indicators .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 8px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  .custom-carousel-indicators .dot.active {
+    background-color: #333; /* Slightly darker for active dot */
+  }
+
+  .custom-carousel-indicators {
+    position: relative;
+    bottom: -40px; /* Adjust the space below the slider */
+  }
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: black; /* Change carousel controls to black if needed */
+  }
+
+  .list-unstyled a {
+      display: block; /* Makes the link behave like a block element */
+      margin-bottom: 10px; /* Adds spacing below each link */
+      color: white; /* Optional: Sets link color */
+      text-decoration: none; /* Removes underline */
     }
 
-    #consultationForm input.form-control,
-    #consultationForm textarea.form-control {
-      background-color: #f1f1f1;
-      /* Grey background */
+    .list-unstyled a:hover {
+      color: #007bff; /* Optional: Change color on hover */
     }
 
-    /* Add space between input fields */
-    .custom-carousel-indicators .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 8px;
-      background-color: black;
+    .floating-menu {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-menu .btn {
       border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s;
-      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .custom-carousel-indicators .dot.active {
-      background-color: #333;
-      /* Slightly darker for active dot */
+    .floating-menu .btn i {
+      font-size: 24px;
     }
 
-    .custom-carousel-indicators {
-      position: relative;
-      bottom: -40px;
-      /* Adjust the space below the slider */
-    }
+    .bg-orange {
+  background-color: #ff6600;
+}
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      background-color: black;
-      /* Change carousel controls to black if needed */
-    }
+.container {
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.me-2 {
+  margin-right: 8px;
+}
+
+.ms-3 {
+  margin-left: 12px;
+}
+
+.mx-3 {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* Styles for mobile and tablet screens */
+@media (max-width: 768px) {
+  .container {
+    text-align: center;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mx-3 {
+    margin: 10px 0;
+  }
+
+  .me-2 {
+    margin-right: 0;
+  }
+
+  .ms-3 {
+    margin-left: 0;
+  }
+
+  .fab {
+    font-size: 24px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .fab {
+    font-size: 20px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container i {
+    font-size: 18px;
+  }
+}
+
+
   </style>
 </head>
 
 <body>
   <!-- Top Bar -->
   <div class="bg-orange text-white py-2">
-    <div class="container d-flex justify-content-between align-items-center">
+    <div
+      class="container d-flex justify-content-between align-items-center flex-wrap">
       <div>
-        <i class="fas fa-map-marker-alt me-2"></i>C-Little Hearts, Undri/Pisoli, Pune - 411060
+        <i class="fas fa-map-marker-alt me-2"></i>C-Little Hearts,
+        Undri/Pisoli, Pune - 411060
       </div>
       <div>
         <i class="fas fa-envelope me-2"></i>foundation@websoftera.com
         <span class="mx-3">|</span>
         <i class="fas fa-phone me-2"></i>+91 8788316633
         <span class="ms-3">
-          <i class="fab fa-facebook me-2"></i>
-          <i class="fab fa-instagram"></i>
+          <a
+            class="fab fa-facebook me-2"
+            style="color: #f1ffe6"
+            href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"
+          ></a>
+          <a
+            class="fab fa-instagram"
+            style="color: #f1ffe6"
+            href="https://www.instagram.com/websoftera/?hl=en"
+          ></a>
         </span>
       </div>
     </div>
@@ -458,158 +596,210 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link" href="index.html" id="home-link">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="about.html" id="about-link">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
+            <a class="nav-link" href="services.html" id="services-link">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="contact.html" id="contact-link">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="career.html">Career</a>
+            <a class="nav-link" href="career.html" id="career-link">Career</a>
           </li>
         </ul>
-
-        <!-- Request Quote Button -->
-        <a href="Contact.html" class="btn btn-success ms-3" id="request-quote-btn" style="
-              height: 50px;
-              width: 200px;
-              font-size: 20px;
-              text-transform: uppercase;
-            ">
-          Request Quote
-        </a>
       </div>
+      <!-- Request Quote Button (visible on large screens only) -->
+      <a href="Contact.html" class="btn btn-success ms-3 d-none d-lg-block" id="request-quote-btn" style="
+            height: 50px;
+            width: 200px;
+            font-size: 20px;
+            text-transform: uppercase;
+          ">
+        Request Quote
+      </a>
     </div>
   </nav>
+  
 
-  <div class="my-div">
-    <div class="container">
-      <h1 class="text-center fw-bold text-white" style="padding-top: 150px; font-size: 60px;">
-        Contact Us
-      </h1>
-    </div>
-    <div class="container">
-      <h4 class="text-center text-white" style="padding-top: 30px;">Contact for Premium Business Services</h4>
-    </div>
-    <div class="container"  style="padding-top: 20px;">
-      <p class="text-center text-white" style="font-size: 18px;">
-        Have questions or need expert assistance? Connect with us for tailored <br>solutions that elevate your business. Whether it’s inquiries, support, or <br> 
-        collaboration, we’re committed to providing exceptional service and helping you<br>Amazing Designs and Quality Work achieve your goals seamlessly. Let’s build success together!
-      </p>
-      
+<!-- Bootstrap JS and Custom Script -->
+<script>
+  const togglerButton = document.getElementById("navbar-toggler");
+  const navbarCollapse = document.getElementById("navbarNav");
+  const icon = togglerButton.querySelector(".navbar-toggler-icon");
+
+  togglerButton.addEventListener("click", function () {
+    // Check if the menu is expanding or collapsing
+    const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+    // Toggle the icon to cross or hamburger
+    if (isExpanded) {
+      icon.style.backgroundImage = 'url("./images/cross.png")'; // Set cross icon
+      icon.style.backgroundSize = "contain";
+      icon.style.backgroundRepeat = "no-repeat";
+      icon.style.width = "30px"; // Adjust size if needed
+      icon.style.height = "30px"; // Adjust size if needed
+
+      // Add white background to navbar menu when opened
+      navbarCollapse.classList.add("bg-white");
+      navbarCollapse.classList.add("shadow"); // Optional: Adds a shadow effect
+
+      // Change text color of navbar links to black
+      const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+      navLinks.forEach((link) => {
+        link.style.color = "black"; // Change text color to black when menu is expanded
+      });
+    } else {
+      icon.style.backgroundImage = ""; // Reset to hamburger icon
+
+      // Remove white background when menu is collapsed
+      navbarCollapse.classList.remove("bg-white");
+      navbarCollapse.classList.remove("shadow");
+
+      // Reset text color of navbar links back to default (white)
+      const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+      navLinks.forEach((link) => {
+        link.style.color = ""; // Reset color to default
+      });
+    }
+  });
+</script>
+
+<div class="my-div">
+  <div class="container">
+    <h1 class="text-center fw-bold text-white" style="padding-top: 100px; font-size: 60px;">
+      Contact Us
+    </h1>
+  </div>
+  
+  <div class="container d-flex justify-content-between align-items-center" style="padding-top: 30px; padding-left: 430px;">
+    <h4 class="text-white" style="flex: 1; text-align: left;">
+      Contact for Premium Business Services
+    </h4>
+    <div style="flex: 1; text-align: right;">
+      <!-- You can add a logo or any right-aligned item here -->
     </div>
   </div>
+  
+  <div class="container" style="padding-top: 20px;">
+    <p class="text-white" style="font-size: 18px; word-spacing: 2px; text-align: left; padding-left: 330px;">
+      Have questions or need expert assistance? Connect with us for tailored<br> solutions that elevate your business. Whether it’s 
+      inquiries, support, or <br>collaboration, we’re committed to providing exceptional service and<br> helping you achieve your goals 
+      seamlessly. Let’s build success together!
+    </p>
+  </div>
+</div>
 
-  <div style="
-          padding-top: 120px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-         
-          ">
-    <h2 class="form-title text-dark" style="font-weight: bold; padding-right: 700px">
+
+
+
+  </div>
+
+   
+  <div style="background: linear-gradient(to bottom, white, rgb(237, 251, 226))";>
+    <div style="
+      padding-top: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
+      ">
+      <h2 class="form-title text-dark" style="font-weight: bold; padding-right: 700px">
       Request Free Consultation
-    </h2>
-    <h2 class="form-title text-dark" style="font-weight: bold; margin-right: 30px;">
+      </h2>
+      <h2 class="form-title text-dark" style="font-weight: bold; margin-right: 30px;">
       Get In Touch
-    </h2>
+      </h2>
   </div>
-
-
-
-  <div style="background: linear-gradient(to bottom, white, rgb(237, 251, 226))" ;>
-    <div class="container my-5">
-      <div class="row g-4">
-        <!-- Form Section -->
-        <div class="col-lg-4 d-flex align-items-stretch">
-          <div class="form-section">
-
-            <form id="consultationForm" style="padding-top: 30px;">
-              <div class="mb-3" style="padding-top: 10px;">
-                <input type="text" class="form-control" id="name" placeholder="Your name*" required />
-              </div>
-              <div class="mb-3" style="padding-top: 10px;">
-                <input type="email" class="form-control" id="email" placeholder="Your email*" required />
-              </div>
-              <div class="mb-3" style="padding-top: 10px;">
-                <textarea class="form-control" id="message" rows="5" placeholder="Your message*" required></textarea>
-              </div>
-              <div style="padding-top: 10px;">
-                <button type="submit" class="btn btn-success text-black" style="height: 60px; width: 160px">
-                  SUBMIT
-                </button>
-              </div>
-
-            </form>
-
-          </div>
+  <div class="container my-5"> 
+    <div class="row g-4">
+      <!-- Form Section -->
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="form-section">
+          
+          <form id="consultationForm" style="padding-top: 30px;">
+            <div class="mb-3"  style="padding-top: 10px;">
+              <input type="text" class="form-control" id="name" placeholder="Your name*" required  />
+            </div>
+            <div class="mb-3" style="padding-top: 10px;">
+              <input type="email" class="form-control" id="email" placeholder="Your email*" required />
+            </div>
+            <div class="mb-3" style="padding-top: 10px;">
+              <textarea class="form-control" id="message" rows="5" placeholder="Your message*" required></textarea>
+            </div>
+            <div style="padding-top: 10px;">
+              <button type="submit" class="btn btn-success text-black" style="height: 60px; width: 160px">
+                SUBMIT
+              </button>
+            </div>
+            
+          </form>
+          
         </div>
+      </div>
 
-        <!-- Map Section -->
-        <div class="col-lg-4 col-md-12">
-          <div class="map-section">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14548.027815922855!2d73.914234!3d18.444993!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea4a9a2073e7%3A0x98aec9de5332c2f5!2sLittle%20Hearts%20JN!5e1!3m2!1sen!2sus!4v1735276425353!5m2!1sen!2sus"
-              width="600" height="450" style="border: 0">
-            </iframe>
-          </div>
+      <!-- Map Section -->
+      <div class="col-lg-4 col-md-12">
+        <div class="map-section">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14548.027815922855!2d73.914234!3d18.444993!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea4a9a2073e7%3A0x98aec9de5332c2f5!2sLittle%20Hearts%20JN!5e1!3m2!1sen!2sus!4v1735276425353!5m2!1sen!2sus"
+            width="600" height="450" style="border: 0">
+          </iframe>
         </div>
+      </div>
 
-        <!-- Get In Touch Section -->
+      <!-- Get In Touch Section -->
 
-        <div class="col-lg-4">
-          <div class="contact-info-section">
-            <h4 style=" padding-left: 70px">Reach Us</h4>
-            <div class="contact-details">
-              <!-- Address Row -->
-              <div class="row align-items-center mb-3" style="padding-left: 70px; margin-bottom: 900px">
-                <div class="col-2 text-center">
-                  <i class="bi bi-geo-alt-fill contact-icon"></i>
-                </div>
-                <div class="col-10">
-                  <p>C - Little Hearts, Undri/Pisoli, Pune - 411060</p>
-                </div>
+      <div class="col-lg-4">
+        <div class="contact-info-section">
+          <h4 style=" padding-left: 70px">Reach Us</h4>
+          <div class="contact-details">
+            <!-- Address Row -->
+            <div class="row align-items-center mb-3" style="padding-left: 70px; margin-bottom: 900px">
+              <div class="col-2 text-center">
+                <i class="bi bi-geo-alt-fill contact-icon"></i>
               </div>
-              <!-- Email Row -->
-              <div class="row align-items-center mb-3" style="padding-left: 70px">
-                <div class="col-2 text-center">
-                  <i class="bi bi-envelope-fill contact-icon"></i>
-                </div>
-                <div class="col-10">
-                  <p>
-                    <a href="mailto:foundation@websoftera.com">foundation@websoftera.com</a>
-                  </p>
-                </div>
+              <div class="col-10">
+                <p>C - Little Hearts, Undri/Pisoli, Pune - 411060</p>
               </div>
-              <!-- Phone Numbers Row -->
-              <div class="row align-items-center mb-3" style="padding-left: 70px">
-                <div class="col-2 text-center">
-                  <i class="bi bi-telephone-fill contact-icon"></i>
-                </div>
-                <div class="col-10">
-                  <p>+91 8788316633</p>
-                  <p>+91 7709236006</p>
-                </div>
+            </div>
+            <!-- Email Row -->
+            <div class="row align-items-center mb-3" style="padding-left: 70px">
+              <div class="col-2 text-center">
+                <i class="bi bi-envelope-fill contact-icon"></i>
               </div>
-              <!-- Toll-Free Row -->
-              <div class="row align-items-center">
-                <div class="col-2 text-center" style="margin-bottom: 300px"></div>
-                <div class="col-10">
-                  <p class="phone-number-text">Call us Toll Free</p>
-                  <p class="phone-number">+91 8788316633</p>
-                </div>
+              <div class="col-10">
+                <p>
+                  <a href="mailto:foundation@websoftera.com">foundation@websoftera.com</a>
+                </p>
+              </div>
+            </div>
+            <!-- Phone Numbers Row -->
+            <div class="row align-items-center mb-3" style="padding-left: 70px">
+              <div class="col-2 text-center">
+                <i class="bi bi-telephone-fill contact-icon"></i>
+              </div>
+              <div class="col-10">
+                <p>+91 8788316633</p>
+                <p style="padding-top: 20px;">+91 7709236006</p>
+              </div>
+            </div>
+            <!-- Toll-Free Row -->
+            <div class="row align-items-center">
+              <div class="col-2 text-center" ></div>
+              <div class="col-10">
+                <p class="call-us-text">Call us Toll Free</p>
+                <p class="phone-number" style="font-size: 30px;">+91 8788316633</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+  </div>
     <div class="col" style="background-color:  rgb(237, 251, 226);">
       <div class="cta-section d-flex align-items-center justify-content-center gap-4" style=" padding: 40px">
         <div class="cta-content" style="background-color: white; padding: 40px; width: 1100px">
@@ -635,158 +825,166 @@
       </div>
     </div>
   </div>
-    <script>
-      document
-        .getElementById("consultationForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent default form submission
 
-          // Gather form data
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const message = document.getElementById("message").value.trim();
 
-          // Validation patterns
-          const namePattern = /^[A-Za-z\s]{2,}$/; // Only alphabets and spaces, minimum 2 characters
-          const emailPattern =
-            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Standard email format
+  <script>
+    document
+      .getElementById("consultationForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
 
-          // Validate name
-          if (!namePattern.test(name)) {
-            alert(
-              "Please enter a valid name (at least 2 characters, alphabets, and spaces only)."
-            );
-            return;
-          }
+        // Gather form data
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-          // Validate email
-          if (!emailPattern.test(email)) {
-            alert("Please enter a valid email address.");
-            return;
-          }
+        // Validation patterns
+        const namePattern = /^[A-Za-z\s]{2,}$/; // Only alphabets and spaces, minimum 2 characters
+        const emailPattern =
+          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Standard email format
 
-          // Get existing entries from localStorage
-          const entries =
-            JSON.parse(localStorage.getItem("consultationEntries")) || [];
-
-          // Check for duplicate email
-          const isDuplicateEmail = entries.some(
-            (entry) => entry.email === email
+        // Validate name
+        if (!namePattern.test(name)) {
+          alert(
+            "Please enter a valid name (at least 2 characters, alphabets, and spaces only)."
           );
-          if (isDuplicateEmail) {
-            alert(
-              "This email address is already in use. Please use a different email."
-            );
-            return;
-          }
+          return;
+        }
 
-          // Validate message
-          if (message.length < 5) {
-            alert("Please enter a message of at least 5 characters.");
-            return;
-          }
+        // Validate email
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
 
-          // Create an entry object
-          const entry = { name, email, message };
+        // Get existing entries from localStorage
+        const entries =
+          JSON.parse(localStorage.getItem("consultationEntries")) || [];
 
-          // Add the new entry
-          entries.push(entry);
+        // Check for duplicate email
+        const isDuplicateEmail = entries.some(
+          (entry) => entry.email === email
+        );
+        if (isDuplicateEmail) {
+          alert(
+            "This email address is already in use. Please use a different email."
+          );
+          return;
+        }
 
-          // Save updated entries back to localStorage
-          localStorage.setItem("consultationEntries", JSON.stringify(entries));
+        // Validate message
+        if (message.length < 5) {
+          alert("Please enter a message of at least 5 characters.");
+          return;
+        }
 
-          window.location.href = "entries.html";
-        });
-    </script>
+        // Create an entry object
+        const entry = { name, email, message };
 
-   
+        // Add the new entry
+        entries.push(entry);
 
+        // Save updated entries back to localStorage
+        localStorage.setItem("consultationEntries", JSON.stringify(entries));
 
+        window.location.href = "entries.html";
+      });
+  </script>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <!-- About -->
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <img src="./images/websoftera-logo.png" alt="Logo" width="220" height="100"/>
-            <p class="mt-3">
-              Empower your business with Websoftera!<br>
-              Trusted by startups,<br>
-              enterprises, and organizations,<br>
-              we bring your vision to life with<br>
-              tailored solutions.<br>
-              Partner with us, and let’s achieve success together.
-            </p>
-            
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
+<div class="floating-menu">
+  <a href="https://wa.me/1234567890" target="_blank" class="btn btn-success">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+    <i class="fas fa-envelope"></i>
+  </button>
+</div>
 
-          <!-- Company -->
-          <div class="col-6 col-md-2 mb-4 mb-md-0">
-            <h5>Company</h5>
-            <ul class="list-unstyled">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Career</a></li>
-            </ul>
-          </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- About -->
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+          <img src="./images/websoftera-logo.png" alt="Logo" width="220" height="100" />
+          <p class="mt-3">
+            Empower your business with Websoftera!<br>
+            Trusted by startups,<br>
+            enterprises, and organizations,<br>
+            we bring your vision to life with<br>
+            tailored solutions.<br>
+            Partner with us, and let’s achieve success together.
+          </p>
 
-          <!-- Business -->
-          <div class="col-6 col-md-2 mb-4 mb-md-0">
-            <h5>Business</h5>
-            <ul class="list-unstyled">
-              <li><a href="#">Project</a></li>
-              <li><a href="#">Our Team</a></li>
-              <li><a href="#">Facts</a></li>
-              <li><a href="#">Customers</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <h5>Get In Touch</h5>
-            <p>
-              Address:
-              <span>C-Little Hearts,<br />
-                Undri/Pisoli,Pune - 411060</span>
-            </p>
-            <p>
-              Email:
-              <a style="color: rgb(84, 180, 53)" href="mailto:foundation@websoftera.com">foundation@websoftera.com</a>
-            </p>
-            <p>
-              Phone:
-              <a style="color: rgb(84, 180, 53)" href="tel:+918788316633">+91 8788316633</a>
-            </p>
-            <p>
-              Phone:
-              <a style="color: rgb(84, 180, 53)" href="tel:+917709236006">+91 7709236006</a>
-            </p>
-          </div>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"><i
+                class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/websoftera/?hl=en"><i class="fab fa-instagram"></i></a>          </div>
         </div>
-        <div class="text-center mt-4">
-          <hr style="
-              border-top: 2px solid rgba(255, 255, 255, 0.984);
-              width: 100%;
-              margin: 0;
-              padding-top: 30px;
-            " />
+
+        <!-- Company -->
+        <div class="col-6 col-md-2 mb-4 mb-md-0">
+          <h5>Company</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Career.html">Career</a></li>
+          </ul>
+        </div>
+
+        <!-- Business -->
+        <div class="col-6 col-md-2 mb-4 mb-md-0">
+          <h5>Business</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Project</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Facts</a></li>
+            <li><a href="#">Customers</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+          <h5>Get In Touch</h5>
           <p>
-            Copyright © 2024 WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND
-            MARKETING PRIVATE LIMITED Powered by WEBSOFTERA IT SERVICES AND
-            SOFTWARE DEVELOPMENT AND MARKETING PRIVATE LIMITED
+            Address:
+            <span>C-Little Hearts,<br />
+              Undri/Pisoli,Pune - 411060</span>
+          </p>
+          <p>
+            Email:
+            <a style="color: rgb(84, 180, 53)" href="mailto:foundation@websoftera.com">foundation@websoftera.com</a>
+          </p>
+          <p>
+            Phone:
+            <a style="color: rgb(84, 180, 53)" href="tel:+918788316633">+91 8788316633</a>
+          </p>
+          <p>
+            Phone:
+            <a style="color: rgb(84, 180, 53)" href="tel:+917709236006">+91 7709236006</a>
           </p>
         </div>
       </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="text-center mt-4">
+        <hr style="
+          border-top: 2px solid rgba(255, 255, 255, 0.984);
+          width: 100%;
+          margin: 0;
+          padding-top: 30px;
+        " />
+        <p>
+          Copyright © 2024 WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND
+          MARKETING PRIVATE LIMITED Powered by WEBSOFTERA IT SERVICES AND
+          SOFTWARE DEVELOPMENT AND MARKETING PRIVATE LIMITED
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 </body>
 
 </html>
