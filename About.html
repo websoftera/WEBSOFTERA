@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Websoftera Design</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="style/navbar.css" />
+  <link rel="icon" href="./images/websoftera-logo.png" />
+  <style>
+    .body {
+      background-color: rgb(237, 251, 226)
+    }
+
+
+    .bg-orange {
+      background-color: #ff6f00;
+    }
+
+    .nav-link:hover {
+      color: #f39c12;
+      text-decoration: underline;
+    }
+
+    .nav-link.active {
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-item {
+      margin: 0 10px;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 1.25rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .my-div {
+      position: relative;
+      background-image: url("./images/about.png ");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 500px;
+    }
+
+    .my-div::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 20, 0, 0.7);
+      z-index: 1;
+    }
+
+    .my-div * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer {
+      background-color: #1c2541;
+      color: #ffffff;
+      padding: 40px 20px;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      font-size: 1.5rem;
+    }
+
+    .card {
+      border: none;
+    }
+
+    .icon {
+      font-size: 2rem;
+      color: #28a745;
+    }
+
+    .services-section {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+
+    .services-section p {
+      color: #333;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .client-section {
+      padding: 50px 0;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .section-header p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .client-logo {
+      max-width: 150px;
+      margin: 0 auto;
+    }
+
+    .client-card {
+      border: 1px solid #28a745;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+     
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .client-card img {
+      width: 100px;
+  
+      height: 100px;
+   
+      object-fit: contain;
+     
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .custom-button {
+      background-color: rgb(84, 180, 53);
+      border-color: rgb(84, 180, 53);
+      color: white;
+      
+    }
+
+    .testimonial-card {
+      background-color: #f1ffe6;
+      border: 1px solid #76c043;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .cta-section {
+      background-color: #f1ffe6;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-btn {
+      background-color: rgb(84, 180, 53);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 15px;
+      height: 60px;
+      width: 200px;
+      color: #000;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      color: #fff;
+      
+      background-color: rgb(84, 180, 53);
+      
+    }
+
+
+    .floating-menu {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-menu .btn {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-menu .btn i {
+      font-size: 24px;
+    }
+
+    .form-section {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .submit-btn {
+      background-color: rgb(84, 180, 53);
+      color: #fff;
+    }
+
+    .submit-btn:hover {
+      background-color: rgb(84, 180, 53);
+    }
+
+    .contact-details a {
+      color: rgb(84, 180, 53);
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    .form-section,
+    .map-section,
+    .contact-details {
+      min-height: 300px;
+    }
+
+    /* form */
+
+    .form-section {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-title {
+      font-family: "Lexend", sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 36px;
+      color: rgb(15, 23, 42);
+      text-align: center;
+    }
+
+    .map-section {
+      height: 600px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-info-section {
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .contact-details h5 {
+      font-size: 18px;
+      color: rgb(84, 180, 53);
+      font-weight: 700;
+    }
+
+    .contact-details p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .contact-details a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-details .phone-number {
+      font-size: 22px;
+      font-weight: bold;
+      color: #5cb85c;
+    }
+
+    .contact-icon {
+      font-size: 24px;
+      margin-right: 10px;
+      color: rgb(84, 180, 53);
+    }
+
+    @media (max-width: 992px) {
+      .map-section {
+        height: 400px;
+      }
+
+      .form-title {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .map-section {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .map-section {
+        height: 250px;
+      }
+    }
+
+    .btn-success {
+      background-color: rgb(84, 180, 53);
+      border-color: rgb(84, 180, 53);
+    }
+
+    .btn-success:hover {
+      background-color: rgb(84, 180, 53);
+      border-color: rgb(84, 180, 53);
+    }
+
+    .navbar-collapse.bg-white {
+      background-color: white !important;
+      
+    }
+
+    .navbar-collapse.shadow {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    }
+
+    .green-text {
+      color: green;
+    }
+
+    .custom-button:active {
+      color: orange;
+    }
+
+    .custom-heading {
+      font-size: 33px;
+      font-weight: bold;
+    }
+
+    .custom-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+      list-style: none;
+    }
+
+    .custom-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background-image: url('./images/green-arrow.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .process-section {
+      background: linear-gradient(to bottom, #f6ffed, #ffffff);
+      font-family: Arial, sans-serif;
+      padding: 60px 0;
+    }
+
+    .process-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.1);
+    }
+
+    .process-card {
+      text-align: center;
+      width: 380px;
+      
+
+    }
+
+    .process-title {
+      font-weight: 600;
+    }
+
+    .about-section {
+      display: flex;
+      align-items: center;
+      background-color: rgb(237, 251, 226);
+    }
+
+
+
+    .about-image {
+      width: 700px;
+      height: 612px;
+      content: "";
+      transform: scale(1.1);
+      transition: transform 0.3s ease-in-out, max-height 0.3s ease-in-out;
+      object-fit: cover;
+      
+    }
+
+    .zoomed {
+      transform: scale(1.5);
+    
+      max-height: 600px;
+     
+    }
+
+    .about-content {
+      padding: 0 30px;
+      width: 50%;
+    }
+
+    .about-heading {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .about-numbers {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgb(237, 251, 226);
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+
+    .about-numbers div {
+      text-align: center;
+    }
+
+    .about-numbers h3 {
+      font-size: 2rem;
+      color: #28a745;
+    }
+
+    .accordion-button {
+      background-color: white;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #bdf3bd;
+    }
+
+    .accordion-item {
+      border: none;
+    }
+
+    .accordion-body {
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .list-unstyled a {
+      display: block; 
+      margin-bottom: 10px;   
+      color: white;
+      text-decoration: none;
+    
+    }
+
+    .list-unstyled a:hover {
+      color: #007bff;
+      
+    }
+
+    .process-number {
+      font-size: 80px;
+  
+      font-weight: bold;
+    }
+
+    .aligned-text {
+      text-align: justify;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 70px;
+      padding-bottom: -30px;
+      margin: 0 15px;
+      padding: 10px;
+      line-height: 1.6;
+      font-size: 16px;
+      color: #333;
+    }
+
+
+    .stats-section {
+      background-color: rgb(237, 251, 226);
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .stat-number {
+      color: rgb(84, 180, 53);
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .stat-title {
+      color: #000;
+      font-size: 1rem;
+      font-weight: 500;
+      font-size: 16px;
+      text-align: center;
+      padding-left: 10px;
+    }
+
+    .custom-title {
+      font-size: 2rem;
+      font-weight: bold;
+      padding-top: 10px;
+      align-content: center;
+    }
+
+    .number-background {
+      position: relative;
+      text-align: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+    }
+
+    .number-background::before {
+      content: "01.";
+      position: absolute;
+      font-size: 6rem;
+      color: rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      z-index: 0;
+      padding-right: 150px;
+    }
+
+    .number-background2 {
+      position: relative;
+      text-align: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+    }
+
+    .number-background2::before {
+      content: "02.";
+      position: absolute;
+      font-size: 6rem;
+      color: rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      z-index: 0;
+      padding-right: 150px;
+    }
+
+    .number-background3 {
+      position: relative;
+      text-align: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+    }
+
+    .number-background3::before {
+      content: "03.";
+      position: absolute;
+      font-size: 6rem;
+      color: rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      z-index: 0;
+      padding-right: 150px;
+    }
+
+
+    .number-background4 {
+      position: relative;
+      text-align: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+    }
+
+    .number-background4::before {
+      content: "04.";
+      position: absolute;
+      font-size: 6rem;
+      color: rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      z-index: 0;
+      padding-right: 150px;
+    }
+
+    .number-background5 {
+      position: relative;
+      text-align: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+    }
+
+    .number-background5::before {
+      content: "05.";
+      position: absolute;
+      font-size: 6rem;
+      color: rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      z-index: 0;
+      padding-right: 150px;
+    }
+
+    .number-background6 {
+      position: relative;
+      text-align: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+    }
+
+    .number-background6::before {
+      content: "06.";
+      position: absolute;
+      font-size: 6rem;
+      color: rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      z-index: 0;
+      padding-right: 150px;
+    }
+
+
+    .text-content {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      padding-top: 80px;
+      padding-right: 170px;
+    }
+
+    .text-content2 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      padding-top: 80px;
+      padding-right: 200px;
+    }
+
+    .text-content3 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      padding-top: 80px;
+      padding-right: 180px;
+    }
+
+    .text-content4 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      padding-top: 80px;
+      padding-right: 200px;
+    }
+
+    .text-content5 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      padding-top: 80px;
+      padding-right: 130px;
+    }
+
+    .text-content6 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      padding-top: 80px;
+      padding-right: 200px;
+    }
+
+    .custom-accordion-button:focus {
+      box-shadow: none; 
+      outline: none;
+    }
+
+    .custom-accordion-button {
+      border: none;
+   
+    }
+
+    .stat-container {
+      display: flex;    
+      align-items: center;     
+      gap: 10px;
+    }
+
+    .stat-number {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .floating-menu {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-menu .btn {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-menu .btn i {
+      font-size: 24px;
+    }
+
+    .bg-orange {
+      background-color: #ff6600;
+    }
+
+    .container {
+      max-width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .justify-content-between {
+      justify-content: space-between;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .me-2 {
+      margin-right: 8px;
+    }
+
+    .ms-3 {
+      margin-left: 12px;
+    }
+
+    .mx-3 {
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+
+
+    @media (max-width: 768px) {
+      .container {
+        text-align: center;
+      }
+
+      .d-flex {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mx-3 {
+        margin: 10px 0;
+      }
+
+      .me-2 {
+        margin-right: 0;
+      }
+
+      .ms-3 {
+        margin-left: 0;
+      }
+
+      .fab {
+        font-size: 24px;
+        margin: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .fab {
+        font-size: 20px;
+      }
+
+      .d-flex {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container i {
+        font-size: 18px;
+      }
+    }
+
+  
+
+@media (max-width: 768px) {
+  .stat-title {
+    font-size: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem; 
+  }
+}
+
+@media (max-width: 576px) {
+  .stat-container {
+    margin-bottom: 20px;
+    align-items:center
+  }
+}
+  </style>
+</head>
+
+<body>
+  <!-- Top Bar -->
+  <div class="bg-orange text-white py-2">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <div>
+        <i class="fas fa-map-marker-alt me-2"></i>C-Little Hearts,
+        Undri/Pisoli, Pune - 411060
+      </div>
+      <div>
+        <i class="fas fa-envelope me-2"></i>foundation@websoftera.com
+        <span class="mx-3">|</span>
+        <i class="fas fa-phone me-2"></i>+91 8788316633
+        <span class="ms-3">
+          <a class="fab fa-facebook me-2" style="color: #f1ffe6"
+            href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"></a>
+          <a class="fab fa-instagram" style="color: #f1ffe6" href="https://www.instagram.com/websoftera/?hl=en"></a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="./images/websoftera-logo.png" alt="Logo" width="200" height="70" />
+      </a>
+      <!-- Toggler Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbar-toggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto text-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" id="home-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html" id="about-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html" id="services-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html" id="contact-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="career.html" id="career-link">Career</a>
+          </li>
+        </ul>
+      </div>
+
+
+
+      </script -->
+      <a href="Contact.html" class="btn btn-success ms-3 d-none d-lg-block" id="request-quote-btn" style="
+              height: 50px;
+              width: 200px;
+              font-size: 20px;
+              text-transform: uppercase;
+            ">
+        Request Quote
+      </a>
+    </div>
+  </nav>
+
+
+
+  <!-- Bootstrap JS and Custom Script -->
+  <script>
+    const togglerButton = document.getElementById("navbar-toggler");
+    const navbarCollapse = document.getElementById("navbarNav");
+    const icon = togglerButton.querySelector(".navbar-toggler-icon");
+
+    togglerButton.addEventListener("click", function () {
+      // Check if the menu is expanding or collapsing
+      const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+      // Toggle the icon to cross or hamburger
+      if (isExpanded) {
+        icon.style.backgroundImage = 'url("./images/cross.png")'; // Set cross icon
+        icon.style.backgroundSize = "contain";
+        icon.style.backgroundRepeat = "no-repeat";
+        icon.style.width = "30px"; // Adjust size if needed
+        icon.style.height = "30px"; // Adjust size if needed
+
+        // Add white background to navbar menu when opened
+        navbarCollapse.classList.add("bg-white");
+        navbarCollapse.classList.add("shadow"); // Optional: Adds a shadow effect
+
+        // Change text color of navbar links to black
+        const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.style.color = "black"; // Change text color to black when menu is expanded
+        });
+      } else {
+        icon.style.backgroundImage = ""; // Reset to hamburger icon
+
+        // Remove white background when menu is collapsed
+        navbarCollapse.classList.remove("bg-white");
+        navbarCollapse.classList.remove("shadow");
+
+        // Reset text color of navbar links back to default (white)
+        const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.style.color = ""; // Reset color to default
+        });
+      }
+    });
+  </script>
+
+  <!-- Hero Section -->
+  <div class="my-div">
+    <div class="container">
+      <h1 class="text-center fw-bold text-white" style="padding-top: 70px; font-size: 60px;">
+        About Us
+      </h1>
+    </div>
+    <div class="container">
+      <h4 class="text-center text-white" style="padding-top: 30px;">Welcome to The Websoftera</h4>
+    </div>
+    <div class="container" style="padding-top: 20px;">
+      <p class="text-center text-white" style="font-size: 18px;">
+        At Websoftera, we specialize in delivering innovative solutions that
+        help<br> businesses thrive in the digital age. Our mission is to empower clients with<br> cutting-edge
+        technology,
+        creative designs, and personalized strategies that drive <br> growth and
+        success.
+      </p>
+
+      <div class="container py-5">
+        <div class="row g-4" style="margin-bottom: 100px;">
+          <!-- Card 1 -->
+          <div class="col-sm-6 col-lg-4">
+            <div class="card text-start shadow-lg p-5 h-100">
+              <span class="d-block" style="border-top: 8px solid green; width: 60px; margin-bottom: 10px;"></span>
+              <h5 class="card-title spacing-between custom-heading">Who Are We</h5>
+              <p class="card-text" style="text-align: justify; line-height: 1.8; word-spacing: 2px; padding-top: 10px;">
+                We are Websoftera, experts in WordPress development. We craft user-friendly, creative websites tailored
+                to your business. Our focus is quality, innovation, and results. Let’s elevate your online presence!
+              </p>
+
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-sm-6 col-lg-4">
+            <div class="card text-start shadow-lg p-5 h-100">
+              <span class="d-block" style="border-top: 8px solid green; width: 60px; margin-bottom: 10px; "></span>
+              <h5 class="card-title spacing-between custom-heading">Our Mission</h5>
+              <p class="card-text"
+                style="text-align: justify; line-height: 1.8; word-spacing: 2px;  padding-top: 10px; ">
+                To deliver innovative and customized WordPress solutions that empower businesses to grow, enhance their
+                digital presence, and achieve their goals. We are committed to excellence, creativity, and building
+                lasting partnerships with our clients.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-sm-6 col-lg-4">
+            <div class="card text-start shadow-lg p-5 h-100 ">
+              <span class="d-block" style="border-top: 8px solid green; width: 60px; margin-bottom: 10px;"></span>
+              <h5 class="card-title spacing-between custom-heading">What We Do</h5>
+              <ul class="card-text list-unstyled custom-list"
+                style="text-align: justify; line-height: 1.8; word-spacing: 2px;  padding-top: 10px;">
+                <li>Website Development</li>
+                <li>Digital Marketing</li>
+                <li>Social Media</li>
+                <li>eCommerce Store</li>
+                <li>UI/UX Design</li>
+                <li>ERP Solutions</li>
+                <li>Tech Support</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Services Section -->
+
+    <div class="process-section">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5">Our 6-D Process</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="process-card">
+              <div class="number-background">
+                <div class="text-content">Discover</div>
+              </div>
+              <p class="aligned-text">Identify client goals, audience needs, and project requirements through
+                research and analysis.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card">
+              <div class="number-background2">
+                <div class="text-content2">Define</div>
+              </div>
+              <p class="aligned-text">Document the project scope, create a roadmap, and finalize the structure
+                and deliverables.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card">
+              <div class="number-background3">
+                <div class="text-content3">Develop</div>
+              </div>
+              <p class="aligned-text">Develop wireframes and prototypes with appealing visuals and user-friendly
+                interfaces.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card">
+              <div class="number-background4">
+                <div class="text-content4">Deploy</div>
+              </div>
+              <p class="aligned-text">Build the website using clean code, integrating necessary tools and
+                functionalities.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card">
+              <div class="number-background5">
+                <div class="text-content5">Developover</div>
+              </div>
+              <p class="aligned-text">Launch the website after thorough testing and performance optimization.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card">
+              <div class="number-background6">
+                <div class="text-content6">Deliver</div>
+              </div>
+              <p class="aligned-text">Provide training, ongoing support, updates, and performance monitoring.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <img src="./images/about-page-img.jpg" alt="About Us Image" class="about-image">
+      <div class="container py-5">
+        <h2 class="text-dark fw-bold mb-4" style="padding-left: 180px; color: #007bff; font-size: 40px;">Why Choose Us?
+        </h2>
+        <div class="container" style="width: 80%; padding-top: 20px; padding-left: 40px">
+          <p class="text-dark">
+            We deliver innovative solutions with expert precision, ensuring top-quality designs, reliable support, and
+            measurable results for your business success.
+          </p>
+        </div>
+        <div class="accordion" id="whyChooseUsAccordion" style="width: 90%; padding-left: 110px; padding-top: 30px;">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#feature1" aria-expanded="false" aria-controls="feature1">
+                Best Quality Designs
+              </button>
+            </h2>
+            <div id="feature1" class="accordion-collapse collapse show" data-bs-parent="#whyChooseUsAccordion">
+              <div class="accordion-body">
+                We deliver visually stunning and highly functional designs tailored to your business needs, ensuring a
+                lasting impact.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#feature2" aria-expanded="false" aria-controls="feature2">
+                24x7 Live Support
+              </button>
+            </h2>
+            <div id="feature2" class="accordion-collapse collapse" data-bs-parent="#whyChooseUsAccordion">
+              <div class="accordion-body">
+                Our dedicated team is always available to assist you with any queries or issues, ensuring uninterrupted
+                service.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#feature3" aria-expanded="false" aria-controls="feature3">
+                Result Oriented Projects
+              </button>
+            </h2>
+            <div id="feature3" class="accordion-collapse collapse" data-bs-parent="#whyChooseUsAccordion">
+              <div class="accordion-body">
+                We focus on delivering measurable outcomes that help your business grow and achieve its goals
+                effectively
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#feature4" aria-expanded="false" aria-controls="feature4">
+                Award Winning Support Team
+              </button>
+            </h2>
+            <div id="feature4" class="accordion-collapse collapse" data-bs-parent="#whyChooseUsAccordion">
+              <div class="accordion-body">
+                Our team is recognized for exceptional customer support, ensuring your satisfaction at every step.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#feature5" aria-expanded="false" aria-controls="feature5">
+                Best ROI Techniques
+              </button>
+            </h2>
+            <div id="feature5" class="accordion-collapse collapse" data-bs-parent="#whyChooseUsAccordion">
+              <div class="accordion-body">
+                We implement strategies designed to maximize your return on investment and drive business success.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#feature6" aria-expanded="false" aria-controls="feature6">
+                Experienced Professionals
+              </button>
+            </h2>
+            <div id="feature6" class="accordion-collapse collapse" data-bs-parent="#whyChooseUsAccordion">
+              <div class="accordion-body">
+                Our team of experts brings years of experience and innovation to every project, ensuring excellence in
+                execution.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <section class="stats-section text-center ">
+      <div class="container">
+        <div class="stat-title custom-title">Some Numbers</div>
+        <div class="row" style="margin-top: 20px; padding-left: 110px;">
+          <div class="col-md-3">
+            <div class="stat-container">
+              <div class="stat-number">40+</div>
+              <div class="stat-title">Satisfied<br> Clients</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-container">
+              <div class="stat-number">50+</div>
+              <div class="stat-title">Projects<br> Completed</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-container">
+              <div class="stat-number">27</div>
+              <div class="stat-title" >Accolades<br> Earned</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-container">
+              <div class="stat-number">56K+</div>
+              <div class="stat-title">Lines of<br> Code</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="row">
+      <div class="col">
+        <div class="cta-section d-flex align-items-center justify-content-center gap-4"
+          style="background-color: rgb(237,251,226); padding-bottom: 90px; ">
+          <div class="cta-content" style="background-color: white; padding: 40px; width: 1100px">
+            <div>
+              <h3 class="green-text" style="font-size: 36px; font-weight: bold; color: rgb(84, 180, 53);">
+                Would you like to start a project with us?
+              </h3>
+              <div class="d-flex align-items-center gap-4">
+                <p class="mb-0 flex-grow-1"
+                  style="font-size: 18px; line-height: 1.6; padding-top: 20px; margin-right: 20px;">
+                  Ready to transform your vision into reality? Collaborate with our expert team for<br />
+                  creative, impactful, and scalable results.
+                </p>
+                <div style="padding-bottom: 50px">
+                  <button class="cta-btn">
+                    +91 8788316633
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="floating-menu">
+      <a href="https://wa.me/1234567890" target="_blank" class="btn btn-success">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+        <i class="fas fa-envelope"></i>
+      </button>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- About -->
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <img src="./images/websoftera-logo.png" alt="Logo" width="220" height="100" />
+            <p class="mt-3">
+              Empower your business with Websoftera!<br>
+              Trusted by startups,<br>
+              enterprises, and organizations,<br>
+              we bring your vision to life with<br>
+              tailored solutions.<br>
+              Partner with us, and let’s achieve success together.
+            </p>
+
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/people/Web-Softera/pfbid0tVWNBH9iXMrxRG17VKgGRA9uiByswbWq8knEvdFvaXG32XPPhaBLiS5dh9D6MwiWl/"><i
+                  class="fab fa-facebook"></i></a>
+              <a href="https://www.instagram.com/websoftera/?hl=en"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <!-- Company -->
+          <div class="col-6 col-md-2 mb-4 mb-md-0">
+            <h5>Company</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+              <li><a href="Career.html">Career</a></li>
+            </ul>
+          </div>
+
+          <!-- Business -->
+          <div class="col-6 col-md-2 mb-4 mb-md-0">
+            <h5>Business</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Project</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Facts</a></li>
+              <li><a href="#">Customers</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <h5>Get In Touch</h5>
+            <p>
+              Address:
+              <span>C-Little Hearts,<br />
+                Undri/Pisoli,Pune - 411060</span>
+            </p>
+            <p>
+              Email:
+              <a style="color: rgb(84, 180, 53)" href="mailto:foundation@websoftera.com">foundation@websoftera.com</a>
+            </p>
+            <p>
+              Phone:
+              <a style="color: rgb(84, 180, 53)" href="tel:+918788316633">+91 8788316633</a>
+            </p>
+            <p>
+              Phone:
+              <a style="color: rgb(84, 180, 53)" href="tel:+917709236006">+91 7709236006</a>
+            </p>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <hr style="
+            border-top: 2px solid rgba(255, 255, 255, 0.984);
+            width: 100%;
+            margin: 0;
+            padding-top: 30px;
+          " />
+          <p>
+            Copyright © 2024 WEBSOFTERA IT SERVICES AND SOFTWARE DEVELOPMENT AND
+            MARKETING PRIVATE LIMITED Powered by WEBSOFTERA IT SERVICES AND
+            SOFTWARE DEVELOPMENT AND MARKETING PRIVATE LIMITED
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
