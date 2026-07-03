@@ -1,0 +1,6 @@
+[
+    {"icon": "bi-palette2", "title": "Design With Purpose", "description": "Every pixel serves a function. We design for clarity, trust, and conversion \u2014 not aesthetic trends. Our UI choices are strategic, not decorative."},
+    {"icon": "bi-code-square", "title": "Build Clean, Build Maintainable", "description": "We write structured, commented, and well-organized code that your next developer won't curse us for. Scalability is baked in, not bolted on."},
+    {"icon": "bi-chat-dots", "title": "Communicate Openly", "description": "You will always know where your project stands. No radio silence, no surprises, no waiting for launch day to see what you've paid for."},
+    {"icon": "bi-shield-check", "title": "Support Beyond Delivery", "description": "A project isn't finished when we hand it over \u2014 it's finished when it's performing well for your business. We stay available post-launch."}
+]

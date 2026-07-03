@@ -1,210 +1,247 @@
-/**
-* Template Name: FlexStart
-* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-* Updated: Nov 01 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+/* ============================================================
+   WEBSOFTERA — Main JS v2
+   ============================================================ */
 
-(function() {
-  "use strict";
+'use strict';
 
-  /**
-   * Apply .scrolled class to the body as the page is scrolled down
-   */
-  function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
-  }
-
-  document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
-
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
+// ---- Scroll Reveal ----
+const revealItems = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
+  }, { threshold: 0.08 });
+  revealItems.forEach(el => io.observe(el));
+} else {
+  revealItems.forEach(el => el.classList.add('visible'));
+}
 
+// ---- Header Scroll State (collapses topbar, darkens header) ----
+const headerWrap = document.getElementById('headerWrap');
+const onScroll = () => headerWrap?.classList.toggle('is-scrolled', window.scrollY > 30);
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// ---- Theme Toggle (dark / light) ----
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('websoftera-theme', next); } catch (e) { /* storage unavailable, ignore */ }
+    themeToggle.setAttribute('aria-label', next === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
   });
+}
 
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
+// ---- Mobile Nav Toggle ----
+const toggler = document.querySelector('.navbar-toggler');
+const navPanel = document.querySelector('.main-nav-panel');
+if (toggler && navPanel) {
+  toggler.addEventListener('click', () => {
+    const expanded = toggler.getAttribute('aria-expanded') === 'true';
+    toggler.setAttribute('aria-expanded', String(!expanded));
+    navPanel.classList.toggle('show');
+  });
+  navPanel.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navPanel.classList.remove('show');
+      toggler.setAttribute('aria-expanded', 'false');
     });
   });
+}
 
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
+// ---- Marquee Duplicate (seamless loop) ----
+const track = document.querySelector('.metric-track');
+if (track) {
+  const clone = track.innerHTML;
+  track.innerHTML = clone + clone;
+}
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
+// ---- Counter Animation (homepage + ribbon counters) ----
+function animateCounter(el) {
+  const target  = parseInt(el.getAttribute('data-target') || el.textContent, 10) || 0;
+  const duration = 2000;
+  const start    = performance.now();
+  const animate  = (now) => {
+    const elapsed  = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease     = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(ease * target);
+    if (progress < 1) { requestAnimationFrame(animate); }
+    else { el.textContent = target; el.closest('.counter-card')?.classList.add('is-counted'); }
+  };
+  requestAnimationFrame(animate);
+}
+
+if ('IntersectionObserver' in window) {
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      animateCounter(entry.target);
+      countIO.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.counter-number').forEach(c => countIO.observe(c));
+}
+
+// ---- Hero Carousel Dots Sync ----
+const heroCarousel = document.getElementById('heroImageSlider');
+if (heroCarousel) {
+  heroCarousel.addEventListener('slide.bs.carousel', e => {
+    heroCarousel.querySelectorAll('.hero-slider-dots button').forEach((dot, i) => {
+      dot.classList.toggle('active', i === e.to);
+    });
+  });
+}
+
+// ---- Client Card Hover Overlay ----
+document.querySelectorAll('.client-browser-frame').forEach(frame => {
+  const img = frame.querySelector('.client-live-frame-img');
+  if (img) {
+    const setLoaded = () => frame.classList.add('is-loaded');
+    img.addEventListener('load', setLoaded);
+    img.addEventListener('error', () => frame.classList.remove('is-loaded'));
+    if (img.complete) setLoaded();
+  } else {
+    frame.classList.add('is-loaded');
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+});
+
+// ---- Service Card 3D Tilt ----
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left, y = e.clientY - rect.top;
+    const cx = rect.width / 2, cy = rect.height / 2;
+    const rotX = ((y - cy) / cy) * 4, rotY = ((x - cx) / cx) * -4;
+    card.style.transform = `translateY(-8px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    card.style.transition = 'transform 0.1s ease';
   });
-
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  }
-  window.addEventListener('load', aosInit);
-
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'all 0.55s cubic-bezier(0.4,0,0.2,1)';
   });
+});
 
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
-
-  /**
-   * Frequently Asked Questions Toggle
-   */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
-    });
+// ---- Counter Pulse on Hover ----
+document.querySelectorAll('.counter-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    const num = card.querySelector('.counter-number');
+    if (num) { num.style.transform = 'scale(1.08)'; setTimeout(() => { num.style.transform = ''; }, 200); }
   });
+});
 
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+// ---- Service Sticky Nav: Scrollspy Active State ----
+const serviceNavLinks = document.querySelectorAll('.service-nav-link');
+const serviceSections  = document.querySelectorAll('.service-showcase-section[id]');
 
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+if (serviceNavLinks.length && serviceSections.length) {
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        serviceNavLinks.forEach(link => {
+          link.classList.toggle('snl-active', link.getAttribute('href') === '#' + id);
         });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
+      }
     });
+  }, { threshold: 0.35 });
+  serviceSections.forEach(s => navIO.observe(s));
 
+  // Smooth scroll for service anchor links
+  serviceNavLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const offset = 120; // header + sticky nav height
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
   });
 
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
+  // Also for page-hero-pills (service anchor pills)
+  document.querySelectorAll('.page-hero-pill[href^="#"]').forEach(pill => {
+    pill.addEventListener('click', e => {
+      const target = document.querySelector(pill.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 120;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
-  }
+  });
+}
 
-  window.addEventListener("load", initSwiper);
+// ---- Milestone Hover Animation ----
+document.querySelectorAll('.milestone-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    item.querySelector('.milestone-year-badge')?.classList.add('hovered');
+  });
+  item.addEventListener('mouseleave', () => {
+    item.querySelector('.milestone-year-badge')?.classList.remove('hovered');
+  });
+});
 
-  /**
-   * Correct scrolling position upon page load for URLs containing hash links.
-   */
-  window.addEventListener('load', function(e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
+// ---- SVP Bar animation retrigger on scroll ----
+const svpBars = document.querySelectorAll('.svp-bar');
+if (svpBars.length && 'IntersectionObserver' in window) {
+  const barIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.svp-bar::after').forEach(b => {
+          b.style.animationPlayState = 'running';
+        });
       }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.svc-visual-wrap').forEach(wrap => barIO.observe(wrap));
+}
+
+// ---- Smooth anchor scroll for hero pills and career links ----
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const offset = 100;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
     }
   });
+});
 
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
-
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
+// ---- Perk cards stagger entrance ----
+if ('IntersectionObserver' in window) {
+  const perkIO = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.querySelectorAll('.perk-card-v2, .value-tile-v2, .trust-card, .tech-item');
+        cards.forEach((card, i) => {
+          setTimeout(() => card.classList.add('visible'), i * 80);
+        });
+        perkIO.unobserve(entry.target);
       }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.perks-grid, .value-tiles-v2, .trust-grid, .tech-grid').forEach(g => {
+    g.querySelectorAll('.perk-card-v2, .value-tile-v2, .trust-card, .tech-item').forEach(c => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(20px)';
+      c.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+    perkIO.observe(g);
+  });
+}
 
-})();
+// Auto-add 'visible' styles on stagger trigger
+document.addEventListener('DOMContentLoaded', () => {
+  const style = document.createElement('style');
+  style.textContent = `.perk-card-v2.visible,.value-tile-v2.visible,.trust-card.visible,.tech-item.visible{opacity:1!important;transform:none!important;}`;
+  document.head.appendChild(style);
+});

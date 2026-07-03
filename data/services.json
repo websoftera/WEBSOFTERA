@@ -1,0 +1,102 @@
+[
+    {
+        "title": "Website Development",
+        "icon": "bi-window-stack",
+        "description": "Premium, responsive, SEO-friendly business websites crafted to build trust, explain your offer clearly, and generate qualified leads.",
+        "features": ["Custom UI design", "Landing pages", "Performance optimization"],
+        "eyebrow": "Web & UI Development",
+        "visual": "browser",
+        "stats": ["150+|Sites Built", "98%|Client Satisfaction", "72h|Avg Delivery Start"],
+        "reqs": [
+            "Custom UI designed around your brand, not templates",
+            "SEO-structured markup, meta, and performance setup",
+            "Landing pages built for Google Ads conversion",
+            "Responsive across all devices out of the box"
+        ]
+    },
+    {
+        "title": "WordPress Website Development",
+        "icon": "bi-wordpress",
+        "description": "Elegant WordPress websites with custom layouts, flexible content controls, plugin setup, and maintainable CMS workflows.",
+        "features": ["Custom themes", "CMS training", "Plugin configuration"],
+        "eyebrow": "WordPress & CMS",
+        "visual": "browser",
+        "stats": ["80+|WP Sites Live", "100%|CMS Trained Clients", "0|Downtime Record"],
+        "reqs": [
+            "Custom theme built to your brand \u2014 not a starter template",
+            "Content management training included post-launch",
+            "Plugin and SEO configuration: Yoast, Contact Form, Cache",
+            "WooCommerce and e-commerce extensions available"
+        ]
+    },
+    {
+        "title": "Mobile App Development",
+        "icon": "bi-phone",
+        "description": "Scalable Android and iOS app development focused on smooth user experience, clean interfaces, performance, and business outcomes.",
+        "features": ["Android apps", "iOS apps", "API integrations"],
+        "eyebrow": "App Development",
+        "visual": "phone",
+        "stats": ["2 Platforms|Android & iOS", "4.8\u2605|Avg App Rating", "100%|API Tested"],
+        "reqs": [
+            "Native-quality performance on Android and iOS",
+            "Clean API integrations with third-party services",
+            "Admin panels and backend dashboards included",
+            "App Store and Google Play submission support"
+        ]
+    },
+    {
+        "title": "Digital Marketing Services",
+        "icon": "bi-megaphone",
+        "description": "Conversion-focused digital marketing across SEO, Google Ads, content, and social campaigns designed to increase enquiries.",
+        "features": [
+            "SEO",
+            "Social Media Management",
+            "Google Ads & Meta Ads",
+            "Content Creation & Posting",
+            "Lead Generation Campaigns",
+            "WhatsApp & Email Marketing",
+            "Website Promotion",
+            "Google My Business / Review Management",
+            "Analytics & Performance Reporting"
+        ],
+        "eyebrow": "Growth Marketing",
+        "visual": "analytics",
+        "stats": ["3\u00d7 ROI|Average Return", "12+|Active Channels", "Monthly|Performance Reports"],
+        "reqs": [
+            "SEO with keyword research, on-page, and backlink building",
+            "Google Ads and Meta Ads setup, A/B tested",
+            "Social media content calendars and scheduled posting",
+            "WhatsApp campaigns, lead nurturing, and review management"
+        ]
+    },
+    {
+        "title": "Software and Website Development Training",
+        "icon": "bi-mortarboard",
+        "description": "Practical IT training in full-stack development, React, Node.js, and live project workflows for career-ready learners.",
+        "features": ["Full-stack modules", "Project work", "Career guidance"],
+        "eyebrow": "IT Training & Education",
+        "visual": "code",
+        "stats": ["300+|Students Trained", "6+|Live Modules", "Real|Project-Based"],
+        "reqs": [
+            "Full-stack curriculum: HTML, CSS, JS, React, Node, PHP, MySQL",
+            "Live project work from week one \u2014 no theoretical-only modules",
+            "Resume building, mock interviews, and placement guidance",
+            "Weekend batches and weekday batches available"
+        ]
+    },
+    {
+        "title": "ERP Solutions",
+        "icon": "bi-diagram-3",
+        "description": "Tailored ERP systems that automate routine work, centralize business data, and give teams clearer operational control.",
+        "features": ["Workflow automation", "Dashboards", "Custom modules"],
+        "eyebrow": "ERP & Business Software",
+        "visual": "erp",
+        "stats": ["Full|Workflow Automation", "Multi-Dept|Integration", "Real-Time|Data Access"],
+        "reqs": [
+            "Custom ERP designed for your existing team workflows",
+            "Role-based access control and department-level dashboards",
+            "Inventory, HR, CRM, and procurement modules",
+            "Data migration, testing, and team training included"
+        ]
+    }
+]

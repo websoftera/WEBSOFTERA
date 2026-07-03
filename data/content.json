@@ -1,0 +1,67 @@
+{
+    "pages": {
+        "home": {
+            "title": "Websoftera | Website, Mobile App, Software Development Company in Pune",
+            "description": "Websoftera is a Pune-based IT company offering website development, mobile app development, software solutions, ERP, digital marketing, and IT training."
+        },
+        "about": {
+            "title": "About Websoftera | IT Services and Software Development Company in Pune",
+            "description": "Learn about Websoftera, a professional IT services company in Pune delivering scalable web, app, ERP, and digital marketing solutions."
+        },
+        "services": {
+            "title": "IT Services in Pune | Web Development, Mobile Apps, ERP, Digital Marketing",
+            "description": "Explore Websoftera services including website development, WordPress development, mobile apps, ERP systems, digital marketing, and software training."
+        },
+        "contact": {
+            "title": "Contact Websoftera | Request a Free IT Consultation in Pune",
+            "description": "Contact Websoftera for website development, mobile app development, ERP, software projects, digital marketing, and IT training in Pune."
+        },
+        "career": {
+            "title": "Careers and Internships at Websoftera | IT Jobs in Pune",
+            "description": "Apply for IT jobs and internships at Websoftera in Pune. Explore openings in web development, marketing, design, and software development."
+        }
+    },
+    "hero_title": "Classy Websites, Software, And Digital Growth Systems",
+    "hero_subtitle": "Websoftera creates fast, elegant, and conversion-ready digital experiences for businesses that want sharper branding, cleaner systems, and stronger online enquiries.",
+    "about_intro": "Websoftera helps businesses turn ideas into polished digital platforms. We plan, design, develop, launch, and improve websites, mobile apps, ERP workflows, and marketing campaigns with a strong focus on clarity, speed, trust, and measurable business growth.",
+    "mission": "To help growing organizations use technology with confidence through classy design, reliable development, transparent communication, and practical long-term support.",
+    "vision": "To become a preferred digital transformation partner for businesses that value elegant interfaces, scalable systems, and marketing-ready online experiences.",
+    "ads_note": "Every conversion page is designed with clear calls to action, trust signals, service-specific copy, and fast-loading sections suitable for Google Ads traffic.",
+
+    "company_stats": {
+        "projects": "150+",
+        "clients": "80+",
+        "satisfaction": "97%",
+        "support": "24/7"
+    },
+
+    "about_page": {
+        "founded_year": "2020",
+        "story_heading": "From A Small Pune Studio To A Multi-Service IT Partner",
+        "story_text": "Websoftera started with one belief: that small and mid-sized businesses deserve the same quality of digital work that large enterprises pay agencies a fortune for. We launched in 2020 with a focus on website development and quickly expanded as clients asked for more \u2014 apps, ERP systems, marketing campaigns, and staff training.",
+        "story_quote": "We don't just build websites. We help businesses think clearly about what they want to achieve online \u2014 and then we build that.",
+        "story_text2": "Today, Websoftera serves clients across India and internationally \u2014 from service businesses and educational institutions to import-export firms and sports academies. Our Pune team handles every engagement from strategy to support, with no outsourcing and no junior-only execution.",
+        "mission_tagline": "To help growing organizations use technology with confidence.",
+        "vision_tagline": "To become the preferred digital transformation partner for businesses that value craft, reliability, and results.",
+        "culture_heading": "A Team That Takes Quality Personally",
+        "culture_text": "Websoftera is built on a flat, professional culture where everyone's work matters. Our team spans web development, app engineering, design, marketing, and training \u2014 all under the same roof in Pune.",
+        "culture_text2": "We work with clients who take their digital presence seriously. That means we attract team members who care about output, not just hours. Reviews don't go out without proper QA. Projects don't go live without client sign-off."
+    },
+
+    "contact_page": {
+        "intro": "Share what you're working on \u2014 a website, an app, an ERP system, a marketing push. Our team will come back with a practical recommendation, not a sales pitch.",
+        "form_subtitle": "We respond within one business day \u2014 usually same day.",
+        "response_time": "Under 4 Hours",
+        "response_note": "Mon\u2013Sat business hours. WhatsApp even faster.",
+        "business_hours": "Mon \u2013 Sat: 9:30 AM \u2013 7:00 PM IST",
+        "whatsapp_message": "Hi, I have a project inquiry for Websoftera."
+    },
+
+    "career_page": {
+        "intro": "Websoftera is growing \u2014 and we're looking for developers, marketers, and designers who want to work on real client projects, with an experienced team, in a professional environment.",
+        "culture_heading": "A Place Where Your Work Actually Matters",
+        "culture_text": "At Websoftera, you don't spend your first six months on coffee runs or internal decks. From week one, you're working on real client projects \u2014 with guidance, proper tools, and a team that reviews your output seriously.",
+        "culture_text2": "We're a small but experienced team. That means you get exposure to every part of a project \u2014 planning, design, build, testing, and client communication \u2014 not just one narrow function.",
+        "whatsapp_message": "Hi, I'd like to apply for a role at Websoftera."
+    }
+}

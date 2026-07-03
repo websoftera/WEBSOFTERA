@@ -1,0 +1,8 @@
+[
+    {"icon": "bi-laptop", "title": "Live Project Work From Day One", "description": "No internal-only tasks. You'll be building and shipping real client work within your first weeks."},
+    {"icon": "bi-graph-up-arrow", "title": "Skill Growth & Training", "description": "Regular internal training sessions, access to tools and courses, and exposure to multiple services."},
+    {"icon": "bi-people", "title": "Flat Team Structure", "description": "Direct access to senior developers and project leads. No layers of managers between you and the work."},
+    {"icon": "bi-calendar2-check", "title": "Flexible Work Culture", "description": "Results-focused environment. We care about what you deliver \u2014 not whether you were at your desk at 9:01."},
+    {"icon": "bi-trophy", "title": "Mentorship & Reviews", "description": "Bi-monthly performance reviews with clear feedback, recognition, and growth path discussions."},
+    {"icon": "bi-briefcase", "title": "Pune-Based + Hybrid Options", "description": "Based in Pune with hybrid arrangements available for senior roles depending on the engagement."}
+]

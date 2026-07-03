@@ -1,0 +1,20 @@
+[
+    {"icon": "bi-filetype-html", "name": "HTML5"},
+    {"icon": "bi-filetype-css", "name": "CSS3 / SCSS"},
+    {"icon": "bi-filetype-js", "name": "JavaScript"},
+    {"icon": "bi-filetype-php", "name": "PHP"},
+    {"icon": "bi-filetype-py", "name": "Python"},
+    {"icon": "bi-database", "name": "MySQL"},
+    {"icon": "bi-cloud", "name": "MongoDB"},
+    {"icon": "bi-wordpress", "name": "WordPress"},
+    {"icon": "bi-phone", "name": "Flutter"},
+    {"icon": "bi-boxes", "name": "React"},
+    {"icon": "bi-server", "name": "Node.js"},
+    {"icon": "bi-git", "name": "Git / GitHub"},
+    {"icon": "bi-cloud-upload", "name": "AWS / Cloud"},
+    {"icon": "bi-docker", "name": "Docker"},
+    {"icon": "bi-search", "name": "Google Ads"},
+    {"icon": "bi-bar-chart", "name": "Meta Ads"},
+    {"icon": "bi-shield-check", "name": "HTTPS / SSL"},
+    {"icon": "bi-speedometer2", "name": "Core Web Vitals"}
+]

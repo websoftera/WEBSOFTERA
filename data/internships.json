@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Web Development Intern",
+        "duration": "3 Months",
+        "location": "Pune",
+        "description": "Work alongside our development team on live client websites, learning modern frontend and backend workflows.",
+        "status": "Open",
+        "requirements": [
+            "Basic knowledge of HTML, CSS, and JavaScript",
+            "Eagerness to work on live client projects from week one",
+            "Ability to commit full-time for the internship duration"
+        ]
+    },
+    {
+        "title": "Digital Marketing Intern",
+        "duration": "3 Months",
+        "location": "Pune",
+        "description": "Support SEO, social media, and ad campaign execution for real client accounts under team guidance.",
+        "status": "Open",
+        "requirements": [
+            "Understanding of digital marketing concepts (SEO, social media, PPC)",
+            "Strong written English for content creation",
+            "Active on social media platforms"
+        ]
+    }
+]

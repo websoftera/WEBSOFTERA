@@ -1,0 +1,51 @@
+[
+    {
+        "category": "Education & Training",
+        "name": "Ethos India",
+        "logo": "client-1.jpg",
+        "website_url": "https://ethosindia.in/",
+        "website_image": "screenshot_applied.png"
+    },
+    {
+        "category": "Education & Training",
+        "name": "Everything B2C",
+        "logo": "client-2.webp",
+        "website_url": "https://everythingb2c.in/",
+        "website_image": "screenshot_applied.png"
+    },
+    {
+        "category": "Business & Trade",
+        "name": "Nova Impex",
+        "logo": "client-7.png",
+        "website_url": "",
+        "website_image": "screenshot_applied.png"
+    },
+    {
+        "category": "Business & Trade",
+        "name": "Business Partner",
+        "logo": "client-3.png",
+        "website_url": "",
+        "website_image": "screenshot_applied.png"
+    },
+    {
+        "category": "Real Estate & Services",
+        "name": "Skyline",
+        "logo": "client-6.webp",
+        "website_url": "",
+        "website_image": "screenshot_applied.png"
+    },
+    {
+        "category": "Real Estate & Services",
+        "name": "Service Partner",
+        "logo": "client-4.png",
+        "website_url": "",
+        "website_image": "screenshot_applied.png"
+    },
+    {
+        "category": "Brand & Creative",
+        "name": "Brends",
+        "logo": "client-5.png",
+        "website_url": "",
+        "website_image": "screenshot_applied.png"
+    }
+]

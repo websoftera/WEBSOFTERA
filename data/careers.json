@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Full Stack Developer",
+        "type": "Full Time",
+        "location": "Pune / Hybrid",
+        "description": "Build responsive web applications, APIs, and client dashboards using modern frontend and backend practices.",
+        "status": "Open",
+        "requirements": [
+            "Proficiency in HTML, CSS, JavaScript, React, or similar frontend frameworks",
+            "Backend skills in PHP / Node.js with REST API design experience",
+            "Basic database knowledge: MySQL, PostgreSQL, or MongoDB",
+            "Understanding of Git workflow, deployment processes, and staging environments"
+        ],
+        "nice_to_have": ["AWS or cloud hosting experience", "WordPress development background"]
+    },
+    {
+        "title": "Digital Marketing Executive",
+        "type": "Full Time",
+        "location": "Pune",
+        "description": "Plan SEO, social, and paid campaign activities for IT, education, and service-sector clients.",
+        "status": "Open",
+        "requirements": [
+            "Hands-on experience with Google Ads and Meta Ads campaign management",
+            "Practical SEO knowledge \u2014 keyword research, on-page, and link building",
+            "Ability to create and schedule social media content across LinkedIn, Instagram, and Facebook",
+            "Comfort with analytics tools: Google Analytics, Search Console, Meta Insights"
+        ],
+        "nice_to_have": ["Experience with email marketing tools", "Basic graphic design or Canva skills"]
+    }
+]
