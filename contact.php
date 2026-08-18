@@ -8,10 +8,10 @@ $cp       = $content['contact_page'] ?? [];
 $faqs     = read_json('faqs.json');
 $trust    = read_json('trust.json');
 $success  = false;
+$error    = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $messages = read_json('messages.json');
-    $messages[] = [
+    $lead = [
         'name'       => trim($_POST['name']    ?? ''),
         'email'      => trim($_POST['email']   ?? ''),
         'phone'      => trim($_POST['phone']   ?? ''),
@@ -19,9 +19,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'message'    => trim($_POST['message'] ?? ''),
         'created_at' => date('Y-m-d H:i:s'),
     ];
-    write_json('messages.json', $messages);
-    $success = true;
+
+    if ($lead['name'] === '' || !filter_var($lead['email'], FILTER_VALIDATE_EMAIL) || $lead['message'] === '') {
+        $error = 'Please enter your name, a valid email address, and your message.';
+    } elseif (append_json('messages.json', $lead)) {
+        send_contact_notification($lead);
+        header('Location: contact.php?submitted=1');
+        exit;
+    } else {
+        $error = 'We could not save your message. Please try again.';
+    }
 }
+$success = isset($_GET['submitted']) && $_GET['submitted'] === '1';
 include __DIR__ . '/includes/header.php';
 
 $waPhone   = preg_replace('/[^0-9]/', '', $settings['phone'] ?? '');
@@ -51,11 +60,17 @@ $waMessage = $cp['whatsapp_message'] ?? 'Hi, I have a project inquiry for Websof
           <?php if ($success): ?>
             <div class="success-alert">
               <i class="bi bi-check-circle-fill"></i>
-              Message received. We'll be in touch with you shortly.
+              <div>
+                <strong>Thank you for contacting us!</strong><br>
+                Message received. We'll be in touch with you shortly.
+              </div>
             </div>
-          <?php endif; ?>
+          <?php else: ?>
+            <?php if ($error !== ''): ?>
+              <div class="alert alert-danger"><?= e($error) ?></div>
+            <?php endif; ?>
 
-          <form method="post" action="" novalidate>
+          <form method="post" action="contact.php" novalidate>
             <div class="form-row-2">
               <div class="float-label">
                 <input type="text" name="name" id="f-name" placeholder=" " required>
@@ -96,6 +111,7 @@ $waMessage = $cp['whatsapp_message'] ?? 'Hi, I have a project inquiry for Websof
               <i class="bi bi-lock"></i> Your information is kept private and never shared.
             </p>
           </form>
+          <?php endif; ?>
         </div>
       </div>
 

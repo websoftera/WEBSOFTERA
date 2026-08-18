@@ -158,43 +158,136 @@ $items[] = array_fill_keys($config['fields'], '');
 $adminTitle = $config['title'];
 include __DIR__ . '/admin-header.php';
 ?>
+<style>
+.editor-card {
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.editor-card:hover {
+    border-color: var(--primary) !important;
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.05);
+}
+.editor-card-header {
+    user-select: none;
+}
+.editor-card-header h2 {
+    margin-bottom: 0 !important;
+    font-size: 1.05rem !important;
+}
+.editor-card.collapsed {
+    padding-bottom: 16px;
+}
+.card-title-text {
+    font-weight: 700;
+}
+</style>
+
 <div class="admin-title"><div><span class="eyebrow">Manage</span><h1><?= e($config['title']) ?></h1></div></div>
 <?php if ($saved): ?><div class="alert alert-success"><i class="bi bi-check-circle me-1"></i> Changes saved. Your live website now reflects this content.</div><?php endif; ?>
 <form class="admin-panel" method="post" enctype="multipart/form-data">
     <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
-    <?php foreach ($items as $index => $item): ?>
-        <div class="editor-card">
-            <h2><i class="bi bi-grip-vertical text-muted"></i> <?= $index + 1 ?>. <?= e($item[$config['primary']] ?: 'New item') ?></h2>
-            <div class="row g-3">
-                <?php foreach ($config['fields'] as $field):
-                    $isLong  = in_array($field, array_merge(['description'], $listFields), true);
-                    $isImage = ($type === 'clients' && in_array($field, ['logo', 'website_image'], true)) || ($type === 'hero_images' && $field === 'image');
-                ?>
-                    <div class="<?= $isLong ? 'col-12' : 'col-md-6' ?>">
-                        <label><?= e(ucwords(str_replace('_', ' ', $field))) ?></label>
-                        <?php if (in_array($field, $listFields, true)): ?>
-                            <textarea class="form-control" rows="4" name="items[<?= $index ?>][<?= e($field) ?>]"><?= e(is_array($item[$field] ?? null) ? implode("\n", $item[$field]) : ($item[$field] ?? '')) ?></textarea>
-                        <?php elseif ($field === 'description'): ?>
-                            <textarea class="form-control" rows="3" name="items[<?= $index ?>][<?= e($field) ?>]"><?= e($item[$field] ?? '') ?></textarea>
-                        <?php elseif ($isImage): ?>
-                            <input type="hidden" name="items[<?= $index ?>][<?= e($field) ?>]" value="<?= e($item[$field] ?? '') ?>">
-                            <input type="file" class="form-control" name="upload_<?= e($field) ?>_<?= $index ?>">
-                            <?php if (!empty($item[$field])): ?>
-                                <small class="text-success d-block mt-1">Current file: <strong><?= e($item[$field]) ?></strong></small>
+    <?php foreach ($items as $index => $item): 
+        $isLast = ($index === count($items) - 1);
+        $cardTitle = $item[$config['primary']] ?? '';
+    ?>
+        <div class="editor-card <?= $isLast ? 'is-new' : 'collapsed' ?>" data-index="<?= $index ?>">
+            <div class="editor-card-header d-flex align-items-center justify-content-between cursor-pointer" onclick="toggleCard(<?= $index ?>)">
+                <h2>
+                    <i class="bi bi-grip-vertical text-muted"></i> 
+                    <?= $index + 1 ?>. 
+                    <span class="card-title-text"><?= e($cardTitle ?: 'New item') ?></span>
+                    <?php if (!$isLast): ?>
+                        <?php
+                        $badgeText = '';
+                        $badgeType = '';
+                        if ($type === 'careers' || $type === 'internships') {
+                            $badgeText = $item['status'] ?? '';
+                            $badgeType = $item['type'] ?? $item['duration'] ?? '';
+                        }
+                        ?>
+                        <?php if ($badgeText): ?>
+                            <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle ms-2" style="font-size: 0.72rem;"><?= e($badgeText) ?></span>
+                        <?php endif; ?>
+                        <?php if ($badgeType): ?>
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle ms-1" style="font-size: 0.72rem;"><?= e($badgeType) ?></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </h2>
+                <div class="d-flex align-items-center gap-2">
+                    <?php if (!$isLast): ?>
+                        <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 btn-edit" onclick="event.stopPropagation(); toggleCard(<?= $index ?>)">
+                            <i class="bi bi-pencil"></i> Edit
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-danger py-1 px-2 btn-delete" onclick="event.stopPropagation(); deleteCard(<?= $index ?>)">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    <?php else: ?>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle">Add New</span>
+                    <?php endif; ?>
+                </div>
+            </div>
+            
+            <div class="editor-card-body mt-3" style="<?= $isLast ? '' : 'display: none;' ?>">
+                <div class="row g-3">
+                    <?php foreach ($config['fields'] as $field):
+                        $isLong  = in_array($field, array_merge(['description'], $listFields), true);
+                        $isImage = ($type === 'clients' && in_array($field, ['logo', 'website_image'], true)) || ($type === 'hero_images' && $field === 'image');
+                    ?>
+                        <div class="<?= $isLong ? 'col-12' : 'col-md-6' ?>">
+                            <label><?= e(ucwords(str_replace('_', ' ', $field))) ?></label>
+                            <?php if (in_array($field, $listFields, true)): ?>
+                                <textarea class="form-control" rows="4" name="items[<?= $index ?>][<?= e($field) ?>]"><?= e(is_array($item[$field] ?? null) ? implode("\n", $item[$field]) : ($item[$field] ?? '')) ?></textarea>
+                            <?php elseif ($field === 'description'): ?>
+                                <textarea class="form-control" rows="3" name="items[<?= $index ?>][<?= e($field) ?>]"><?= e($item[$field] ?? '') ?></textarea>
+                            <?php elseif ($isImage): ?>
+                                <input type="hidden" name="items[<?= $index ?>][<?= e($field) ?>]" value="<?= e($item[$field] ?? '') ?>">
+                                <input type="file" class="form-control" name="upload_<?= e($field) ?>_<?= $index ?>">
+                                <?php if (!empty($item[$field])): ?>
+                                    <small class="text-success d-block mt-1">Current file: <strong><?= e($item[$field]) ?></strong></small>
+                                <?php else: ?>
+                                    <small class="text-muted d-block mt-1">No file uploaded yet.</small>
+                                <?php endif; ?>
                             <?php else: ?>
-                                <small class="text-muted d-block mt-1">No file uploaded yet.</small>
+                                <input class="form-control" name="items[<?= $index ?>][<?= e($field) ?>]" value="<?= e($item[$field] ?? '') ?>">
                             <?php endif; ?>
-                        <?php else: ?>
-                            <input class="form-control" name="items[<?= $index ?>][<?= e($field) ?>]" value="<?= e($item[$field] ?? '') ?>">
-                        <?php endif; ?>
-                        <?php if (!empty($helpText[$field])): ?>
-                            <small class="text-muted d-block mt-1"><?= e($helpText[$field]) ?></small>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
+                            <?php if (!empty($helpText[$field])): ?>
+                                <small class="text-muted d-block mt-1"><?= e($helpText[$field]) ?></small>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
-    <button class="btn btn-primary"><i class="bi bi-check2"></i> Save <?= e($config['title']) ?></button>
+    <button class="btn btn-primary mt-3"><i class="bi bi-check2"></i> Save <?= e($config['title']) ?></button>
 </form>
+
+<script>
+function toggleCard(index) {
+    const card = document.querySelector(`.editor-card[data-index="${index}"]`);
+    if (!card) return;
+    const body = card.querySelector('.editor-card-body');
+    const isCollapsed = card.classList.contains('collapsed');
+    
+    if (isCollapsed) {
+        card.classList.remove('collapsed');
+        body.style.display = 'block';
+    } else {
+        card.classList.add('collapsed');
+        body.style.display = 'none';
+    }
+}
+
+function deleteCard(index) {
+    if (confirm("Are you sure you want to delete this item? This will save and reload the page.")) {
+        const card = document.querySelector(`.editor-card[data-index="${index}"]`);
+        if (card) {
+            const primaryInput = card.querySelector(`[name="items[${index}][<?= $config['primary'] ?>]"]`);
+            if (primaryInput) {
+                primaryInput.value = '';
+                card.closest('form').submit();
+            }
+        }
+    }
+}
+</script>
 <?php include __DIR__ . '/admin-footer.php'; ?>

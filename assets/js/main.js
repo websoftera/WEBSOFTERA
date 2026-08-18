@@ -245,3 +245,109 @@ document.addEventListener('DOMContentLoaded', () => {
   style.textContent = `.perk-card-v2.visible,.value-tile-v2.visible,.trust-card.visible,.tech-item.visible{opacity:1!important;transform:none!important;}`;
   document.head.appendChild(style);
 });
+
+// ---- Theme-matched select dropdowns ----
+function initThemeSelects() {
+  document.querySelectorAll('select:not([multiple]):not([data-native-select])').forEach(select => {
+    if (select.dataset.themeSelectReady === '1') return;
+    select.dataset.themeSelectReady = '1';
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'theme-select';
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'theme-select-trigger';
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-expanded', 'false');
+    if (select.getAttribute('aria-label')) trigger.setAttribute('aria-label', select.getAttribute('aria-label'));
+
+    const value = document.createElement('span');
+    value.className = 'theme-select-value';
+    const chevron = document.createElement('i');
+    chevron.className = 'bi bi-chevron-down theme-select-chevron';
+    trigger.append(value, chevron);
+
+    const menu = document.createElement('div');
+    menu.className = 'theme-select-menu';
+    menu.setAttribute('role', 'listbox');
+
+    const optionButtons = [...select.options].map(option => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'theme-select-option';
+      button.setAttribute('role', 'option');
+      button.dataset.value = option.value;
+      button.textContent = option.textContent;
+      button.disabled = option.disabled;
+      menu.appendChild(button);
+      return button;
+    });
+
+    const sync = () => {
+      const selected = select.options[select.selectedIndex];
+      value.textContent = selected?.textContent || '';
+      optionButtons.forEach((button, index) => {
+        const active = index === select.selectedIndex;
+        button.classList.toggle('selected', active);
+        button.setAttribute('aria-selected', String(active));
+      });
+    };
+    const close = () => {
+      wrapper.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+    const open = () => {
+      document.querySelectorAll('.theme-select.open').forEach(item => {
+        if (item !== wrapper) {
+          item.classList.remove('open');
+          item.querySelector('.theme-select-trigger')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      wrapper.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+      optionButtons[select.selectedIndex]?.focus();
+    };
+
+    trigger.addEventListener('click', () => wrapper.classList.contains('open') ? close() : open());
+    trigger.addEventListener('keydown', event => {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp' || event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault(); open();
+      }
+    });
+    optionButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        select.selectedIndex = index;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        sync(); close(); trigger.focus();
+      });
+      button.addEventListener('keydown', event => {
+        if (event.key === 'Escape') { close(); trigger.focus(); }
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          const direction = event.key === 'ArrowDown' ? 1 : -1;
+          let next = index;
+          do { next = (next + direction + optionButtons.length) % optionButtons.length; }
+          while (optionButtons[next].disabled && next !== index);
+          optionButtons[next].focus();
+        }
+      });
+    });
+
+    select.classList.add('theme-select-native');
+    select.parentNode.insertBefore(wrapper, select.nextSibling);
+    wrapper.append(trigger, menu);
+    select.addEventListener('change', sync);
+    sync();
+  });
+
+  document.addEventListener('click', event => {
+    document.querySelectorAll('.theme-select.open').forEach(wrapper => {
+      if (!wrapper.contains(event.target)) {
+        wrapper.classList.remove('open');
+        wrapper.querySelector('.theme-select-trigger')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
+
+initThemeSelects();

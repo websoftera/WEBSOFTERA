@@ -49,6 +49,7 @@ include __DIR__ . '/admin-header.php';
         <a class="btn btn-outline-primary" href="manage.php?type=internships">Manage Internships</a>
         <a class="btn btn-outline-primary" href="manage.php?type=testimonials">Manage Testimonials</a>
         <a class="btn btn-outline-primary" href="messages.php">View Messages</a>
+        <a class="btn btn-outline-primary" href="export-leads.php"><i class="bi bi-file-earmark-spreadsheet"></i> Export Leads</a>
     </div>
 </section>
 
