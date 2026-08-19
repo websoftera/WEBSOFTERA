@@ -1,14 +1,16 @@
 <?php
 require_once __DIR__ . '/../includes/functions.php';
-$adminTitle = 'Messages';
-$messages = array_reverse(read_json('messages.json'));
+$view = ($_GET['type'] ?? 'contact') === 'quotes' ? 'quotes' : 'contact';
+$isQuotes = $view === 'quotes';
+$adminTitle = $isQuotes ? 'Quote Requests' : 'Contact Messages';
+$messages = array_reverse(read_json($isQuotes ? 'quote_messages.json' : 'messages.json'));
 $services = array_values(array_unique(array_filter(array_map(static fn($message) => trim((string)($message['service'] ?? '')), $messages))));
 sort($services);
 include __DIR__ . '/admin-header.php';
 ?>
 <div class="admin-title">
-    <div><span class="eyebrow">Leads</span><h1>Contact messages</h1></div>
-    <a class="btn btn-primary" href="export-leads.php"><i class="bi bi-file-earmark-spreadsheet"></i> Export all leads</a>
+    <div><span class="eyebrow"><?= $isQuotes ? 'Services' : 'Contact Page' ?></span><h1><?= $isQuotes ? 'Quote requests' : 'Contact messages' ?></h1></div>
+    <a class="btn btn-primary" href="export-leads.php?type=<?= $view ?>"><i class="bi bi-file-earmark-spreadsheet"></i> Export <?= $isQuotes ? 'quote requests' : 'contact leads' ?></a>
 </div>
 <section class="admin-panel leads-panel">
     <div class="leads-toolbar">
@@ -32,7 +34,7 @@ include __DIR__ . '/admin-header.php';
     </div>
     <div class="leads-summary"><strong id="lead-count"><?= count($messages) ?></strong> lead<?= count($messages) === 1 ? '' : 's' ?></div>
     <?php if (!$messages): ?>
-        <p class="text-muted mb-0">No messages yet.</p>
+        <p class="text-muted mb-0 leads-no-data">No <?= $isQuotes ? 'quote requests' : 'contact messages' ?> yet.</p>
     <?php else: ?>
         <div class="leads-table-wrap">
             <table class="leads-table">
@@ -51,16 +53,16 @@ include __DIR__ . '/admin-header.php';
                     $timestamp = strtotime($createdAt) ?: 0;
                     $searchable = strtolower(implode(' ', [
                         $message['name'] ?? '', $message['email'] ?? '', $message['phone'] ?? '',
-                        $message['service'] ?? '', $message['message'] ?? '', $createdAt,
+                        $message['service'] ?? '', $message['message'] ?? '', $message['budget'] ?? '', $message['source'] ?? '', $createdAt,
                     ]));
                 ?>
                     <tr class="lead-row" data-search="<?= e($searchable) ?>" data-service="<?= e(strtolower((string)($message['service'] ?? ''))) ?>" data-timestamp="<?= $timestamp ?>">
-                        <td><strong><?= e($message['name'] ?? '') ?></strong></td>
+                        <td><strong><?= e($message['name'] ?? '') ?></strong><?php if (!empty($message['source'])): ?><small class="lead-source"><?= e($message['source']) ?></small><?php endif; ?></td>
                         <td>
                             <a href="mailto:<?= e($message['email'] ?? '') ?>"><?= e($message['email'] ?? '') ?></a>
                             <?php if (!empty($message['phone'])): ?><a href="tel:<?= e(preg_replace('/[^+\d]/', '', $message['phone'])) ?>"><?= e($message['phone']) ?></a><?php endif; ?>
                         </td>
-                        <td><span class="lead-service-badge"><?= e(!empty($message['service']) ? $message['service'] : 'Not specified') ?></span></td>
+                        <td><span class="lead-service-badge"><?= e(!empty($message['service']) ? $message['service'] : 'Not specified') ?></span><?php if (!empty($message['budget'])): ?><small class="lead-budget"><?= e($message['budget']) ?></small><?php endif; ?></td>
                         <td><div class="lead-message" title="<?= e($message['message'] ?? '') ?>"><?= e($message['message'] ?? '') ?></div></td>
                         <td><time datetime="<?= e($createdAt) ?>"><?= $timestamp ? e(date('d M Y', $timestamp)) . '<small>' . e(date('h:i A', $timestamp)) . '</small>' : '—' ?></time></td>
                     </tr>

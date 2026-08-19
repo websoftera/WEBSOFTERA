@@ -10,6 +10,14 @@ function e(?string $value): string {
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
+function valid_indian_mobile(?string $phone): bool {
+    $digits = preg_replace('/\D+/', '', (string)$phone);
+    if (strlen($digits) === 12 && str_starts_with($digits, '91')) {
+        $digits = substr($digits, 2);
+    }
+    return (bool)preg_match('/^[6-9][0-9]{9}$/', $digits);
+}
+
 function data_path(string $file): string {
     return DATA_DIR . '/' . basename($file);
 }

@@ -20,8 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'created_at' => date('Y-m-d H:i:s'),
     ];
 
-    if ($lead['name'] === '' || !filter_var($lead['email'], FILTER_VALIDATE_EMAIL) || $lead['message'] === '') {
-        $error = 'Please enter your name, a valid email address, and your message.';
+    if ($lead['name'] === '' || $lead['message'] === '') {
+        $error = 'Please enter your name and project requirements.';
+    } elseif (!filter_var($lead['email'], FILTER_VALIDATE_EMAIL)) {
+        $error = 'Please enter a valid email address.';
+    } elseif (!valid_indian_mobile($lead['phone'])) {
+        $error = 'Please enter a valid 10-digit Indian mobile number.';
     } elseif (append_json('messages.json', $lead)) {
         send_contact_notification($lead);
         header('Location: contact.php?submitted=1');
@@ -73,18 +77,18 @@ $waMessage = $cp['whatsapp_message'] ?? 'Hi, I have a project inquiry for Websof
           <form method="post" action="contact.php" novalidate>
             <div class="form-row-2">
               <div class="float-label">
-                <input type="text" name="name" id="f-name" placeholder=" " required>
+                <input type="text" name="name" id="f-name" placeholder=" " value="<?= e($_POST['name'] ?? '') ?>" required>
                 <label for="f-name">Your Full Name *</label>
               </div>
               <div class="float-label">
-                <input type="email" name="email" id="f-email" placeholder=" " required>
+                <input type="email" name="email" id="f-email" placeholder=" " value="<?= e($_POST['email'] ?? '') ?>" maxlength="254" required>
                 <label for="f-email">Email Address *</label>
               </div>
             </div>
             <div class="form-row-2">
               <div class="float-label">
-                <input type="tel" name="phone" id="f-phone" placeholder=" ">
-                <label for="f-phone">Phone Number</label>
+                <input type="tel" name="phone" id="f-phone" placeholder=" " value="<?= e($_POST['phone'] ?? '') ?>" inputmode="numeric" pattern="(?:\+91[ -]?)?[6-9][0-9]{9}" maxlength="14" title="Enter a valid 10-digit Indian mobile number" required>
+                <label for="f-phone">Phone Number *</label>
               </div>
               <div class="float-label">
                 <select name="service" id="f-service">
@@ -101,7 +105,7 @@ $waMessage = $cp['whatsapp_message'] ?? 'Hi, I have a project inquiry for Websof
               </div>
             </div>
             <div class="float-label">
-              <textarea name="message" id="f-message" placeholder=" " required></textarea>
+              <textarea name="message" id="f-message" placeholder=" " required><?= e($_POST['message'] ?? '') ?></textarea>
               <label for="f-message">Tell us about your project *</label>
             </div>
             <button class="btn btn-primary btn-lg w-100" type="submit">

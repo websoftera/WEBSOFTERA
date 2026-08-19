@@ -7,6 +7,7 @@ $careers      = read_json('careers.json');
 $internships  = read_json('internships.json');
 $testimonials = read_json('testimonials.json');
 $messages     = read_json('messages.json');
+$quoteMessages = read_json('quote_messages.json');
 $milestones   = read_json('milestones.json');
 $faqs         = read_json('faqs.json');
 include __DIR__ . '/admin-header.php';
@@ -26,7 +27,8 @@ include __DIR__ . '/admin-header.php';
         ['Testimonials', count($testimonials), 'bi-chat-quote'],
         ['Milestones', count($milestones), 'bi-flag'],
         ['FAQs', count($faqs), 'bi-question-circle'],
-        ['New Messages', count($messages), 'bi-inbox'],
+        ['Contact Messages', count($messages), 'bi-inbox'],
+        ['Quote Requests', count($quoteMessages), 'bi-file-earmark-text'],
     ] as $card): ?>
         <div class="col-md-6 col-xl-3">
             <div class="admin-stat">
@@ -48,8 +50,8 @@ include __DIR__ . '/admin-header.php';
         <a class="btn btn-outline-primary" href="manage.php?type=careers">Manage Jobs</a>
         <a class="btn btn-outline-primary" href="manage.php?type=internships">Manage Internships</a>
         <a class="btn btn-outline-primary" href="manage.php?type=testimonials">Manage Testimonials</a>
-        <a class="btn btn-outline-primary" href="messages.php">View Messages</a>
-        <a class="btn btn-outline-primary" href="export-leads.php"><i class="bi bi-file-earmark-spreadsheet"></i> Export Leads</a>
+        <a class="btn btn-outline-primary" href="messages.php?type=contact">Contact Messages</a>
+        <a class="btn btn-outline-primary" href="messages.php?type=quotes">Quote Requests</a>
     </div>
 </section>
 

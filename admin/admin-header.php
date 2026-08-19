@@ -15,7 +15,7 @@
 <body class="admin-body">
 <?php
 $currentScript = basename($_SERVER['SCRIPT_NAME']);
-$currentType   = $_GET['type'] ?? '';
+$currentType   = $_GET['type'] ?? ($currentScript === 'messages.php' ? 'contact' : '');
 function admin_nav_active(string $script, string $type, string $matchScript, string $matchType = ''): string {
     global $currentScript, $currentType;
     if ($currentScript !== $matchScript) return '';
@@ -49,6 +49,7 @@ function admin_nav_active(string $script, string $type, string $matchScript, str
         <a href="manage.php?type=testimonials" class="<?= admin_nav_active('manage.php', 'testimonials', 'manage.php', 'testimonials') ?>"><i class="bi bi-chat-quote"></i> Testimonials</a>
         <a href="manage.php?type=faqs" class="<?= admin_nav_active('manage.php', 'faqs', 'manage.php', 'faqs') ?>"><i class="bi bi-question-circle"></i> FAQs</a>
         <a href="manage.php?type=trust" class="<?= admin_nav_active('manage.php', 'trust', 'manage.php', 'trust') ?>"><i class="bi bi-shield-check"></i> Trust Signals</a>
-        <a href="messages.php" class="<?= admin_nav_active('messages.php', '', 'messages.php') ?>"><i class="bi bi-inbox"></i> Messages</a>
+        <a href="messages.php?type=contact" class="<?= admin_nav_active('messages.php', 'contact', 'messages.php', 'contact') ?>"><i class="bi bi-inbox"></i> Contact Messages</a>
+        <a href="messages.php?type=quotes" class="<?= admin_nav_active('messages.php', 'quotes', 'messages.php', 'quotes') ?>"><i class="bi bi-file-earmark-text"></i> Quote Requests</a>
     </aside>
     <main class="admin-main">

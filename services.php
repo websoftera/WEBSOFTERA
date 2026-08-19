@@ -5,6 +5,36 @@ $meta = page_meta('services');
 $services     = read_json('services.json');
 $techStack    = read_json('tech_stack.json');
 $processSteps = read_json('process_steps.json');
+$quoteSuccess = isset($_GET['quote']) && $_GET['quote'] === 'success';
+$quoteError = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['form_type'] ?? '') === 'quote') {
+  $quoteLead = [
+    'name'       => trim($_POST['name'] ?? ''),
+    'email'      => trim($_POST['email'] ?? ''),
+    'phone'      => trim($_POST['phone'] ?? ''),
+    'service'    => trim($_POST['service'] ?? ''),
+    'message'    => trim($_POST['message'] ?? ''),
+    'source'     => 'Service quote request',
+    'created_at' => date('Y-m-d H:i:s'),
+  ];
+  if ($quoteLead['name'] === '' || $quoteLead['service'] === '' || $quoteLead['message'] === '') {
+    $quoteError = 'Please complete all required fields.';
+  } elseif (!filter_var($quoteLead['email'], FILTER_VALIDATE_EMAIL)) {
+    $quoteError = 'Please enter a valid email address.';
+  } elseif (!valid_indian_mobile($quoteLead['phone'])) {
+    $quoteError = 'Please enter a valid 10-digit Indian mobile number.';
+  } else {
+    $emailLead = $quoteLead;
+    $emailLead['message'] = "Quote request\n\n" . $quoteLead['message'];
+    if (append_json('quote_messages.json', $quoteLead)) {
+      send_contact_notification($emailLead);
+      header('Location: services.php?quote=success');
+      exit;
+    }
+    $quoteError = 'We could not save your request. Please try again.';
+  }
+}
 include __DIR__ . '/includes/header.php';
 ?>
 
@@ -81,7 +111,7 @@ include __DIR__ . '/includes/header.php';
 
         <div class="d-flex gap-3 flex-wrap">
           <a href="contact.php" class="btn btn-primary"><i class="bi bi-lightning-charge"></i> Get This Service</a>
-          <a href="contact.php" class="btn btn-outline-light">Request Quote <i class="bi bi-arrow-right"></i></a>
+          <button type="button" class="btn btn-outline-light js-quote-open" data-service="<?= e($svc['title']) ?>">Request Quote <i class="bi bi-arrow-right"></i></button>
         </div>
       </div>
 
@@ -97,15 +127,13 @@ include __DIR__ . '/includes/header.php';
                 <div class="svp-url-bar"></div>
               </div>
               <div class="svp-body">
-                <div class="svp-hero-bar"></div>
-                <div class="svp-line l80"></div>
-                <div class="svp-line l60"></div>
-                <div class="svp-line l90" style="animation-delay:.3s"></div>
-                <div class="svp-line l45" style="animation-delay:.5s"></div>
+                <span class="svp-preview-label"><?= e($svc['eyebrow'] ?? 'Digital Experience') ?></span>
+                <h3><?= e($svc['title']) ?></h3>
+                <p><?= e($svc['description']) ?></p>
                 <div class="svp-cards">
-                  <div class="svp-card-block"></div>
-                  <div class="svp-card-block" style="animation-delay:.4s"></div>
-                  <div class="svp-card-block" style="animation-delay:.8s"></div>
+                  <?php foreach (array_slice($svc['features'] ?? $reqs, 0, 3) as $feature): ?>
+                    <div class="svp-card-block"><i class="bi bi-check2"></i><span><?= e($feature) ?></span></div>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>
@@ -114,15 +142,14 @@ include __DIR__ . '/includes/header.php';
             <div class="svp-phone">
               <div class="svp-phone-notch"></div>
               <div class="svp-phone-screen">
-                <div class="svp-phone-header"></div>
-                <div class="svp-phone-line"></div>
-                <div class="svp-phone-line lp70"></div>
-                <div class="svp-phone-line lp50"></div>
+                <div class="svp-phone-header"><i class="bi bi-phone"></i> Websoftera App</div>
+                <strong class="svp-phone-title">Built for every screen</strong>
+                <p class="svp-phone-copy">Fast, intuitive mobile experiences for your customers.</p>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;">
-                  <div class="svp-card-block" style="height:40px;border-radius:8px;"></div>
-                  <div class="svp-card-block" style="height:40px;border-radius:8px;animation-delay:.4s"></div>
+                  <div class="svp-phone-feature"><i class="bi bi-android2"></i> Android</div>
+                  <div class="svp-phone-feature"><i class="bi bi-apple"></i> iOS</div>
                 </div>
-                <div class="svp-phone-btn"></div>
+                <div class="svp-phone-btn">Get Started</div>
               </div>
             </div>
 
@@ -257,5 +284,74 @@ include __DIR__ . '/includes/header.php';
     </a>
   </div>
 </section>
+
+<!-- REQUEST QUOTE MODAL -->
+<div class="quote-modal<?= ($quoteSuccess || $quoteError !== '') ? ' open' : '' ?>" id="quote-modal" aria-hidden="<?= ($quoteSuccess || $quoteError !== '') ? 'false' : 'true' ?>">
+  <div class="quote-modal-backdrop" data-quote-close></div>
+  <div class="quote-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title">
+    <button type="button" class="quote-modal-close" data-quote-close aria-label="Close quote form"><i class="bi bi-x-lg"></i></button>
+    <?php if ($quoteSuccess): ?>
+      <div class="quote-success">
+        <div class="quote-success-icon"><i class="bi bi-check2"></i></div>
+        <span class="eyebrow">Request Received</span>
+        <h2 id="quote-modal-title">Thank You For Your Interest</h2>
+        <p>Your quote request has been received. Our team will review your requirement and contact you shortly.</p>
+        <button type="button" class="btn btn-primary" data-quote-close>Continue Exploring</button>
+      </div>
+    <?php else: ?>
+      <div class="quote-modal-heading">
+        <span class="eyebrow">Free Project Estimate</span>
+        <h2 id="quote-modal-title">Request A Quote</h2>
+        <p>Tell us what you need. We’ll respond with the right approach, timeline, and estimated budget.</p>
+      </div>
+      <?php if ($quoteError !== ''): ?><div class="alert alert-danger"><?= e($quoteError) ?></div><?php endif; ?>
+      <form method="post" action="services.php" class="quote-form">
+        <input type="hidden" name="form_type" value="quote">
+        <div class="quote-form-grid">
+          <label><span>Full Name *</span><input class="form-control" type="text" name="name" value="<?= e($_POST['name'] ?? '') ?>" required></label>
+          <label><span>Email Address *</span><input class="form-control" type="email" name="email" value="<?= e($_POST['email'] ?? '') ?>" maxlength="254" required></label>
+          <label><span>Phone Number *</span><input class="form-control" type="tel" name="phone" value="<?= e($_POST['phone'] ?? '') ?>" inputmode="numeric" pattern="(?:\+91[ -]?)?[6-9][0-9]{9}" maxlength="14" title="Enter a valid 10-digit Indian mobile number" required></label>
+          <label><span>Service Required *</span>
+            <select class="form-select" name="service" id="quote-service" required>
+              <option value="">Select a service</option>
+              <?php foreach ($services as $service): ?>
+                <option value="<?= e($service['title']) ?>"<?= ($_POST['service'] ?? '') === $service['title'] ? ' selected' : '' ?>><?= e($service['title']) ?></option>
+              <?php endforeach; ?>
+            </select>
+          </label>
+        </div>
+        <label><span>Project Requirements *</span><textarea class="form-control" name="message" rows="4" placeholder="Briefly describe your project, goals, and preferred timeline." required><?= e($_POST['message'] ?? '') ?></textarea></label>
+        <button class="btn btn-primary btn-lg w-100" type="submit"><i class="bi bi-send"></i> Submit Quote Request</button>
+      </form>
+    <?php endif; ?>
+  </div>
+</div>
+
+<script>
+(() => {
+  const modal = document.getElementById('quote-modal');
+  const serviceSelect = document.getElementById('quote-service');
+  const openModal = service => {
+    if (serviceSelect && service) {
+      serviceSelect.value = service;
+      serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('quote-modal-active');
+    setTimeout(() => modal.querySelector('input, button, select, textarea')?.focus(), 50);
+  };
+  const closeModal = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('quote-modal-active');
+    if (location.search.includes('quote=success')) history.replaceState({}, '', 'services.php');
+  };
+  document.querySelectorAll('.js-quote-open').forEach(button => button.addEventListener('click', () => openModal(button.dataset.service)));
+  document.querySelectorAll('[data-quote-close]').forEach(button => button.addEventListener('click', closeModal));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+  if (modal.classList.contains('open')) document.body.classList.add('quote-modal-active');
+})();
+</script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
