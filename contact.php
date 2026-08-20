@@ -43,10 +43,19 @@ $waMessage = $cp['whatsapp_message'] ?? 'Hi, I have a project inquiry for Websof
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="container reveal">
-    <span class="eyebrow">Let's Talk</span>
-    <h1>Request A Free Consultation For Your Next IT Project</h1>
-    <p><?= e($cp['intro'] ?? "Share what you're working on. Our team will come back with a practical recommendation, not a sales pitch.") ?></p>
+  <div class="container page-hero-grid reveal">
+    <div class="page-hero-copy">
+      <span class="eyebrow">Let's Talk</span>
+      <h1>Request A Free Consultation For Your Next IT Project</h1>
+      <p><?= e($cp['intro'] ?? "Share what you're working on. Our team will come back with a practical recommendation, not a sales pitch.") ?></p>
+    </div>
+    <div class="page-hero-visual" aria-label="Start a conversation with Websoftera">
+      <div class="phv-ring one"></div><div class="phv-ring two"></div>
+      <div class="phv-core"><i class="bi bi-chat-dots"></i><strong>Let’s Connect</strong><span>Response within 1 day</span></div>
+      <div class="phv-chip chip-one"><i class="bi bi-envelope"></i><span>Email</span></div>
+      <div class="phv-chip chip-two"><i class="bi bi-telephone"></i><span>Call</span></div>
+      <div class="phv-chip chip-three"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></div>
+    </div>
   </div>
 </section>
 

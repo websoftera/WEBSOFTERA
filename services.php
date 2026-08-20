@@ -40,17 +40,23 @@ include __DIR__ . '/includes/header.php';
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="container reveal">
-    <span class="eyebrow">What We Build</span>
-    <h1>IT Services Engineered For Growth-Focused Businesses</h1>
-    <p>From clean, conversion-led websites to full ERP automation — every Websoftera service is designed to produce measurable business results, not just deliverables.</p>
-    <div class="page-hero-pills">
-      <?php foreach ($services as $i => $svc): ?>
-        <a href="#service-<?= $i + 1 ?>" class="page-hero-pill">
-          <i class="bi <?= e($svc['icon']) ?>"></i>
-          <?= e($svc['title']) ?>
-        </a>
-      <?php endforeach; ?>
+  <div class="container page-hero-grid reveal">
+    <div class="page-hero-copy">
+      <span class="eyebrow">What We Build</span>
+      <h1>IT Services Engineered For Growth-Focused Businesses</h1>
+      <p>From clean, conversion-led websites to full ERP automation — every Websoftera service is designed to produce measurable business results, not just deliverables.</p>
+      <div class="page-hero-pills">
+        <?php foreach ($services as $i => $svc): ?>
+          <a href="#service-<?= $i + 1 ?>" class="page-hero-pill"><i class="bi <?= e($svc['icon']) ?>"></i><?= e($svc['title']) ?></a>
+        <?php endforeach; ?>
+      </div>
+    </div>
+    <div class="page-hero-visual" aria-label="Connected technology services">
+      <div class="phv-ring one"></div><div class="phv-ring two"></div>
+      <div class="phv-core"><i class="bi bi-layers"></i><strong>Digital Solutions</strong><span>Built to scale</span></div>
+      <div class="phv-chip chip-one"><i class="bi bi-window-stack"></i><span>Web</span></div>
+      <div class="phv-chip chip-two"><i class="bi bi-phone"></i><span>Mobile</span></div>
+      <div class="phv-chip chip-three"><i class="bi bi-diagram-3"></i><span>ERP</span></div>
     </div>
   </div>
 </section>

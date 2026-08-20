@@ -2,50 +2,85 @@
     {
         "category": "Education & Training",
         "name": "Ethos India",
-        "logo": "client-1.jpg",
-        "website_url": "https://ethosindia.in/",
-        "website_image": "screenshot_applied.png"
+        "logo": "logos/ethos-india.webp",
+        "website_url": "https://ethosindiaconsulting.co.in/",
+        "website_image": "site-previews/ethos-india.png"
     },
     {
         "category": "Education & Training",
+        "name": "Trinity College Pune",
+        "logo": "1787207614_cropped-logo.png",
+        "website_url": "https://trinitycollegepune.in/",
+        "website_image": "site-previews/trinity-college.png"
+    },
+    {
+        "category": "Education & Training",
+        "name": "Trinity Sport Academy",
+        "logo": "logos/trinity-sport.png",
+        "website_url": "https://trinitysportacademy.com/",
+        "website_image": "site-previews/trinity-sport.png"
+    },
+    {
+        "category": "Education & Training",
+        "name": "Samraj Academy",
+        "logo": "1787207614_SAMRAJLOGO.png",
+        "website_url": "https://samrajacademy.com/",
+        "website_image": "site-previews/samraj-academy.png"
+    },
+    {
+        "category": "Business & Services",
         "name": "Everything B2C",
         "logo": "client-2.webp",
         "website_url": "https://everythingb2c.in/",
-        "website_image": "screenshot_applied.png"
+        "website_image": ""
     },
     {
-        "category": "Business & Trade",
-        "name": "Nova Impex",
-        "logo": "client-7.png",
-        "website_url": "",
-        "website_image": "screenshot_applied.png"
-    },
-    {
-        "category": "Business & Trade",
-        "name": "Business Partner",
-        "logo": "client-3.png",
-        "website_url": "",
-        "website_image": "screenshot_applied.png"
-    },
-    {
-        "category": "Real Estate & Services",
-        "name": "Skyline",
+        "category": "Architecture & Interiors",
+        "name": "Skyline Roof N Ceil",
         "logo": "client-6.webp",
-        "website_url": "",
-        "website_image": "screenshot_applied.png"
+        "website_url": "https://skylineroofnceil.com/",
+        "website_image": "site-previews/skyline.png"
     },
     {
-        "category": "Real Estate & Services",
-        "name": "Service Partner",
-        "logo": "client-4.png",
-        "website_url": "",
-        "website_image": "screenshot_applied.png"
+        "category": "Education & Training",
+        "name": "M Woodpeckker",
+        "logo": "1787207614_mwoodpeckker_logo-1-1536x810.png",
+        "website_url": "https://mwoodpeckker.in/",
+        "website_image": "site-previews/mwoodpeckker.png"
     },
     {
-        "category": "Brand & Creative",
+        "category": "Business & Services",
         "name": "Brends",
         "logo": "client-5.png",
-        "website_url": "",
-        "website_image": "screenshot_applied.png"
+        "website_url": "https://brends.in/",
+        "website_image": "site-previews/brends.png"
+    },
+    {
+        "category": "Business & Services",
+        "name": "GoDeals365",
+        "logo": "logos/godeals365.png",
+        "website_url": "https://godeals365.in/",
+        "website_image": "site-previews/godeals365.png"
+    },
+    {
+        "category": "Business & Services",
+        "name": "Houserr",
+        "logo": "logos/houserr.png",
+        "website_url": "https://houserr.in/",
+        "website_image": "1787207502_Screenshot 2026-08-20 120014.png"
+    },
+    {
+        "category": "Business & Services",
+        "name": "Inprotech",
+        "logo": "logos/inprotech.png",
+        "website_url": "https://www.inprotech.in/",
+        "website_image": "site-previews/inprotech.png"
+    },
+    {
+        "category": "Business & Services",
+        "name": "Nova Impex",
+        "logo": "client-7.png",
+        "website_url": "https://novaimpex.in/",
+        "website_image": "1787207502_Screenshot 2026-08-20 120037.png"
     }
 ]

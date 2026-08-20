@@ -42,12 +42,51 @@ if (toggler && navPanel) {
   toggler.addEventListener('click', () => {
     const expanded = toggler.getAttribute('aria-expanded') === 'true';
     toggler.setAttribute('aria-expanded', String(!expanded));
+    toggler.setAttribute('aria-label', expanded ? 'Open navigation menu' : 'Close navigation menu');
     navPanel.classList.toggle('show');
   });
   navPanel.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       navPanel.classList.remove('show');
       toggler.setAttribute('aria-expanded', 'false');
+      toggler.setAttribute('aria-label', 'Open navigation menu');
+    });
+  });
+}
+
+// ---- People & Progress Filters ----
+const recognitionFilters = document.querySelectorAll('[data-recognition-filter]');
+const recognitionItems = document.querySelectorAll('.recognition-thumbnail[data-recognition-category]');
+const recognitionStageImage = document.querySelector('#recognitionStageImage');
+if (recognitionFilters.length && recognitionItems.length && recognitionStageImage) {
+  const activateRecognition = item => {
+    recognitionItems.forEach(thumbnail => {
+      const active = thumbnail === item;
+      thumbnail.classList.toggle('active', active);
+      thumbnail.setAttribute('aria-selected', String(active));
+    });
+    recognitionStageImage.classList.add('is-changing');
+    window.setTimeout(() => {
+      recognitionStageImage.src = item.dataset.recognitionSrc;
+      recognitionStageImage.alt = item.dataset.recognitionAlt;
+      recognitionStageImage.classList.remove('is-changing');
+    }, 140);
+  };
+
+  recognitionItems.forEach(item => item.addEventListener('click', () => activateRecognition(item)));
+  recognitionFilters.forEach(button => {
+    button.addEventListener('click', () => {
+      const selected = button.dataset.recognitionFilter;
+      recognitionFilters.forEach(filter => {
+        const active = filter === button;
+        filter.classList.toggle('active', active);
+        filter.setAttribute('aria-pressed', String(active));
+      });
+      recognitionItems.forEach(item => {
+        item.hidden = selected !== 'all' && item.dataset.recognitionCategory !== selected;
+      });
+      const firstVisible = Array.from(recognitionItems).find(item => !item.hidden);
+      if (firstVisible) activateRecognition(firstVisible);
     });
   });
 }

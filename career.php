@@ -19,14 +19,23 @@ $waMessage = $cp['whatsapp_message'] ?? "Hi, I'd like to apply for a role at Web
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="container reveal">
-    <span class="eyebrow">Join Our Team</span>
-    <h1>Build Real Digital Products With A Team That Cares About Quality</h1>
-    <p><?= e($cp['intro'] ?? "Websoftera is growing — and we're looking for developers, marketers, and designers to join our team.") ?></p>
-    <div class="page-hero-pills">
-      <a href="#job-openings" class="page-hero-pill"><i class="bi bi-briefcase"></i> Full-Time Roles</a>
-      <a href="#internships" class="page-hero-pill"><i class="bi bi-mortarboard"></i> Internships</a>
-      <a href="#apply-steps" class="page-hero-pill"><i class="bi bi-send"></i> How To Apply</a>
+  <div class="container page-hero-grid reveal">
+    <div class="page-hero-copy">
+      <span class="eyebrow">Join Our Team</span>
+      <h1>Build Real Digital Products With A Team That Cares About Quality</h1>
+      <p><?= e($cp['intro'] ?? "Websoftera is growing — and we're looking for developers, marketers, and designers to join our team.") ?></p>
+      <div class="page-hero-pills">
+        <a href="#job-openings" class="page-hero-pill"><i class="bi bi-briefcase"></i> Full-Time Roles</a>
+        <a href="#internships" class="page-hero-pill"><i class="bi bi-mortarboard"></i> Internships</a>
+        <a href="#apply-steps" class="page-hero-pill"><i class="bi bi-send"></i> How To Apply</a>
+      </div>
+    </div>
+    <div class="page-hero-visual" aria-label="Career growth at Websoftera">
+      <div class="phv-ring one"></div><div class="phv-ring two"></div>
+      <div class="phv-core"><i class="bi bi-people"></i><strong>Grow With Us</strong><span>Learn · Build · Lead</span></div>
+      <div class="phv-chip chip-one"><i class="bi bi-code-slash"></i><span>Develop</span></div>
+      <div class="phv-chip chip-two"><i class="bi bi-lightbulb"></i><span>Create</span></div>
+      <div class="phv-chip chip-three"><i class="bi bi-rocket-takeoff"></i><span>Advance</span></div>
     </div>
   </div>
 </section>
@@ -119,7 +128,7 @@ $waMessage = $cp['whatsapp_message'] ?? "Hi, I'd like to apply for a role at Web
                 <i class="bi bi-send"></i> Apply via email or WhatsApp — link below
               </div>
               <?php if ($isOpen): ?>
-                <a href="mailto:<?= e($email) ?>?subject=<?= e(rawurlencode('Application: ' . $job['title'])) ?>" class="btn btn-outline-primary btn-sm">Email Resume</a>
+                <a href="https://wa.me/<?= e($waPhone) ?>?text=<?= rawurlencode("Hi, I'd like to apply for the " . $job['title'] . " position at Websoftera. Please share the next steps.") ?>" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Apply Now</a>
               <?php endif; ?>
             </div>
           </div>
@@ -180,7 +189,7 @@ $waMessage = $cp['whatsapp_message'] ?? "Hi, I'd like to apply for a role at Web
                 <i class="bi bi-award"></i> Certificate provided on successful completion
               </div>
               <?php if ($isOpen): ?>
-                <a href="mailto:<?= e($email) ?>?subject=<?= e(rawurlencode('Internship Application: ' . $intern['title'])) ?>" class="btn btn-outline-primary btn-sm">Apply Now</a>
+                <a href="https://wa.me/<?= e($waPhone) ?>?text=<?= rawurlencode("Hi, I'd like to apply for the " . $intern['title'] . " internship at Websoftera. Please share the next steps.") ?>" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Apply Now</a>
               <?php endif; ?>
             </div>
           </div>

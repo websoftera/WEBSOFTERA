@@ -40,8 +40,8 @@ $settings = read_json('settings.json');
   <div class="topbar" id="siteTopbar">
     <div class="container topbar-shell">
       <div class="topbar-left">
-        <a href="mailto:<?= e($settings['email']) ?>"><i class="bi bi-envelope"></i><?= e($settings['email']) ?></a>
-        <a href="tel:<?= e(preg_replace('/[^+\d]/', '', $settings['phone'])) ?>"><i class="bi bi-telephone"></i><?= e($settings['phone']) ?></a>
+        <a class="topbar-email" href="mailto:<?= e($settings['email']) ?>"><i class="bi bi-envelope"></i><?= e($settings['email']) ?></a>
+        <a class="topbar-phone" href="tel:<?= e(preg_replace('/[^+\d]/', '', $settings['phone'])) ?>"><i class="bi bi-telephone"></i><?= e($settings['phone']) ?></a>
         <span class="topbar-hours d-none d-lg-inline-flex"><i class="bi bi-clock"></i>Mon&ndash;Sat: 9:30 AM &ndash; 7:00 PM</span>
       </div>
       <div class="topbar-right">
@@ -70,19 +70,20 @@ $settings = read_json('settings.json');
         </a>
 
         <!-- Mobile toggler -->
-        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Open navigation menu">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+          <i class="bi bi-x-lg navbar-close-icon" aria-hidden="true"></i>
         </button>
 
         <!-- Right-aligned group: nav + theme toggle + CTA -->
         <div class="header-right-group">
           <div class="collapse navbar-collapse main-nav-panel" id="mainNav">
             <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link <?= active_nav('home',    $currentPage) ?>" href="<?= asset('index.php') ?>">Home</a></li>
-              <li class="nav-item"><a class="nav-link <?= active_nav('about',   $currentPage) ?>" href="<?= asset('about.php') ?>">About Us</a></li>
-              <li class="nav-item"><a class="nav-link <?= active_nav('services',$currentPage) ?>" href="<?= asset('services.php') ?>">Services</a></li>
-              <li class="nav-item"><a class="nav-link <?= active_nav('career',  $currentPage) ?>" href="<?= asset('career.php') ?>">Career</a></li>
-              <li class="nav-item"><a class="nav-link <?= active_nav('contact', $currentPage) ?>" href="<?= asset('contact.php') ?>">Contact Us</a></li>
+              <li class="nav-item"><a class="nav-link <?= active_nav('home',    $currentPage) ?>" href="<?= asset('index.php') ?>"><i class="bi bi-house-door nav-mobile-icon"></i><span>Home</span></a></li>
+              <li class="nav-item"><a class="nav-link <?= active_nav('about',   $currentPage) ?>" href="<?= asset('about.php') ?>"><i class="bi bi-buildings nav-mobile-icon"></i><span>About Us</span></a></li>
+              <li class="nav-item"><a class="nav-link <?= active_nav('services',$currentPage) ?>" href="<?= asset('services.php') ?>"><i class="bi bi-grid nav-mobile-icon"></i><span>Services</span></a></li>
+              <li class="nav-item"><a class="nav-link <?= active_nav('career',  $currentPage) ?>" href="<?= asset('career.php') ?>"><i class="bi bi-briefcase nav-mobile-icon"></i><span>Career</span></a></li>
+              <li class="nav-item"><a class="nav-link <?= active_nav('contact', $currentPage) ?>" href="<?= asset('contact.php') ?>"><i class="bi bi-chat-dots nav-mobile-icon"></i><span>Contact Us</span></a></li>
             </ul>
           </div>
 

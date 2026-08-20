@@ -12,16 +12,29 @@ include __DIR__ . '/includes/header.php';
 ?>
 
 <!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="container reveal">
-    <span class="eyebrow">Who We Are</span>
-    <h1>Technology, Design, And Marketing — All Under One Roof</h1>
-    <p>Websoftera is a Pune-based IT company helping businesses build sharper digital presence, cleaner internal systems, and more effective growth marketing. We have been doing this since <?= e($ap['founded_year'] ?? '2020') ?>.</p>
+<section class="page-hero about-page-hero">
+  <div class="container page-hero-grid reveal">
+    <div class="page-hero-copy">
+      <span class="eyebrow">Who We Are</span>
+      <h1>Technology, Design, Marketing All Under One Roof</h1>
+      <p>Websoftera is a Pune-based IT company helping businesses build sharper digital presence, cleaner internal systems, and more effective growth marketing. We have been doing this since <?= e($ap['founded_year'] ?? '2020') ?>.</p>
+      <div class="page-hero-pills">
+        <a href="#our-journey" class="page-hero-pill"><i class="bi bi-signpost-split"></i> Our Journey</a>
+        <a href="#what-we-stand-for" class="page-hero-pill"><i class="bi bi-gem"></i> What We Stand For</a>
+      </div>
+    </div>
+    <div class="page-hero-visual" aria-label="Websoftera company expertise">
+      <div class="phv-ring one"></div><div class="phv-ring two"></div>
+      <div class="phv-core"><i class="bi bi-buildings"></i><strong>Websoftera</strong><span>Est. <?= e($ap['founded_year'] ?? '2020') ?></span></div>
+      <div class="phv-chip chip-one"><i class="bi bi-code-square"></i><span>Engineering</span></div>
+      <div class="phv-chip chip-two"><i class="bi bi-bezier2"></i><span>Design</span></div>
+      <div class="phv-chip chip-three"><i class="bi bi-graph-up-arrow"></i><span>Growth</span></div>
+    </div>
   </div>
 </section>
 
 <!-- STATS RIBBON -->
-<section class="stats-ribbon-sec">
+<section class="stats-ribbon-sec about-stats-ribbon">
   <div class="container">
     <div class="stats-ribbon reveal">
       <div class="stats-ribbon-grid">
@@ -98,7 +111,7 @@ include __DIR__ . '/includes/header.php';
 
 <!-- MILESTONE TIMELINE -->
 <?php if ($milestones): ?>
-<section class="milestones-section">
+<section class="milestones-section" id="our-journey">
   <div class="container">
     <div class="section-title reveal">
       <span class="eyebrow">Our Journey</span>
@@ -118,7 +131,7 @@ include __DIR__ . '/includes/header.php';
 <?php endif; ?>
 
 <!-- MISSION & VISION -->
-<section class="mission-vision-section">
+<section class="mission-vision-section"  id="what-we-stand-for">
   <div class="container">
     <div class="section-title reveal">
       <span class="eyebrow">What We Stand For</span>
@@ -187,7 +200,7 @@ include __DIR__ . '/includes/header.php';
 <?php endif; ?>
 
 <!-- CULTURE SECTION -->
-<section class="culture-section">
+<section class="culture-section" id="our-culture">
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6 reveal">

@@ -187,6 +187,53 @@ include __DIR__ . '/includes/header.php';
 </section>
 
 <!-- ============================================================
+     DIRECTOR'S MESSAGE
+     ============================================================ -->
+<section class="section director-message-section">
+  <div class="director-message-glow"></div>
+  <div class="container">
+    <div class="director-message-card reveal">
+      <div class="director-message-content">
+        <span class="eyebrow">A Message From Our Directors</span>
+        <i class="bi bi-quote director-quote-mark" aria-hidden="true"></i>
+        <h2>Two Leaders.<br>One Vision.</h2>
+        <p>We believe technology is more than code — it is about understanding people, solving real problems, and creating lasting value.</p>
+        <h3 class="director-principles-title">Our Principles</h3>
+        <div class="director-principles" aria-label="Our leadership principles">
+          <span><i class="bi bi-check2-circle"></i> Client-first thinking</span>
+          <span><i class="bi bi-check2-circle"></i> Quality without compromise</span>
+          <span><i class="bi bi-check2-circle"></i> Innovation with purpose</span>
+          <span><i class="bi bi-check2-circle"></i> Partnerships built to last</span>
+        </div>
+      </div>
+
+      <div class="director-profiles-grid">
+        <article class="director-profile-card">
+          <div class="director-photo-wrap">
+            <img src="<?= asset('assets/img/directors/akash-raje.webp') ?>" alt="Akash Raje, Director at Websoftera">
+            <span class="director-photo-label"><i class="bi bi-patch-check-fill"></i> Director</span>
+          </div>
+          <div class="director-profile-copy">
+            <div class="director-identity"><strong>Akash Raje</strong><span>Director, Websoftera</span></div>
+            <blockquote>“Technology should solve real problems, create real value, & help businesses move forward. At Websoftera, we build with purpose, quality, & a long-term vision.”</blockquote>
+          </div>
+        </article>
+        <article class="director-profile-card">
+          <div class="director-photo-wrap">
+            <img src="<?= asset('assets/img/directors/priyanka-akshay-raje.webp') ?>" alt="Mrs. Priyanka Akshay Raje, Director at Websoftera">
+            <span class="director-photo-label"><i class="bi bi-patch-check-fill"></i> Director</span>
+          </div>
+          <div class="director-profile-copy">
+            <div class="director-identity"><strong>Mrs. Priyanka Akshay Raje</strong><span>Director, Websoftera</span></div>
+            <blockquote>“Great businesses are built on trust, people, and consistency. We strive to create meaningful digital solutions and lasting relationships with every client.”</blockquote>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      SERVICES SHOWCASE
      ============================================================ -->
 <section class="section services-showcase">
@@ -347,7 +394,14 @@ include __DIR__ . '/includes/header.php';
                                 </a>
                               <?php endif; ?>
                             </div>
-                            <h4 class="client-card-title text-center fw-bold mt-auto mb-0"><?= e($client['name']) ?></h4>
+                            <div class="client-card-meta mt-auto">
+                              <?php if (!empty($client['logo'])): ?>
+                                <span class="client-logo-badge">
+                                  <img src="<?= e(strpos($client['logo'],'http')===0 ? $client['logo'] : asset('assets/img/clients/'.$client['logo'])) ?>" alt="<?= e($client['name']) ?> logo">
+                                </span>
+                              <?php endif; ?>
+                              <h4 class="client-card-title fw-bold mb-0"><?= e($client['name']) ?></h4>
+                            </div>
                           </article>
                         </div>
                       <?php endforeach; ?>
@@ -401,6 +455,40 @@ include __DIR__ . '/includes/header.php';
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#testimonialSlider" data-bs-slide="prev"><span class="bi bi-arrow-left"></span></button>
       <button class="carousel-control-next" type="button" data-bs-target="#testimonialSlider" data-bs-slide="next"><span class="bi bi-arrow-right"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TEAM RECOGNITION
+     ============================================================ -->
+<section class="section people-progress-section" id="people-progress">
+  <div class="container">
+    <div class="recognition-filter reveal" role="group" aria-label="Filter team highlights">
+      <button class="recognition-filter-btn active" type="button" data-recognition-filter="all" aria-pressed="true">All</button>
+      <button class="recognition-filter-btn" type="button" data-recognition-filter="onboarding" aria-pressed="false">New Onboarding</button>
+      <button class="recognition-filter-btn" type="button" data-recognition-filter="intern" aria-pressed="false">Intern Of The Month</button>
+    </div>
+
+    <div class="recognition-viewer reveal">
+      <div class="recognition-thumbnails" role="tablist" aria-label="Team recognition images">
+        <button class="recognition-thumbnail active" type="button" role="tab" aria-selected="true" data-recognition-category="onboarding" data-recognition-src="assets/img/team-highlights/team-onboarding.webp" data-recognition-alt="Websoftera team recognition">
+          <img src="assets/img/team-highlights/team-onboarding.webp" alt="" loading="lazy">
+        </button>
+        <button class="recognition-thumbnail" type="button" role="tab" aria-selected="false" data-recognition-category="intern" data-recognition-src="assets/img/team-highlights/parth-inamdar.webp" data-recognition-alt="Parth Inamdar, Best Intern of the Month">
+          <img src="assets/img/team-highlights/parth-inamdar.webp" alt="" loading="lazy">
+        </button>
+        <button class="recognition-thumbnail" type="button" role="tab" aria-selected="false" data-recognition-category="intern" data-recognition-src="assets/img/team-highlights/intern-highlight.webp" data-recognition-alt="Websoftera Intern of the Month">
+          <img src="assets/img/team-highlights/intern-highlight.webp" alt="" loading="lazy">
+        </button>
+        <button class="recognition-thumbnail" type="button" role="tab" aria-selected="false" data-recognition-category="intern" data-recognition-src="assets/img/team-highlights/darshna-jagatiya.webp" data-recognition-alt="Darshna Jagatiya, Star Intern of the Month">
+          <img src="assets/img/team-highlights/darshna-jagatiya.webp" alt="" loading="lazy">
+        </button>
+      </div>
+      <figure class="recognition-stage">
+        <span class="recognition-stage-mark" aria-hidden="true"><i class="bi bi-stars"></i></span>
+        <img id="recognitionStageImage" src="assets/img/team-highlights/team-onboarding.webp" alt="Websoftera team recognition">
+      </figure>
     </div>
   </div>
 </section>
