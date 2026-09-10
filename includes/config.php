@@ -12,5 +12,5 @@ $mailConfigFile = __DIR__ . '/mail.local.php';
 $GLOBALS['smtp_config'] = is_file($mailConfigFile) ? require $mailConfigFile : [];
 
 $GLOBALS['admin_user'] = getenv('WEBSOFTERA_ADMIN_USER') ?: 'admin@websoftera.com';
-$GLOBALS['admin_pass_hash'] = getenv('WEBSOFTERA_ADMIN_PASS_HASH') ?: '$2y$10$Uo5zM35qgcX1biEthl/oru4cuX.6KEJdV7sN1iGp.6f8eixfd/OSW';
+$GLOBALS['admin_pass_hash'] = getenv('WEBSOFTERA_ADMIN_PASS_HASH') ?: '$2y$10$T32tk6CpoaicspVW8lZZ1usG6tdTquRDE199WkUM6LbIFW6FJrh3.';
 ?>

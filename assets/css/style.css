@@ -1831,6 +1831,12 @@ body.quote-modal-active { overflow: hidden; }
 }
 .tech-item:hover { border-color: var(--border-glow); transform: translateY(-4px); box-shadow: var(--shadow-glow); }
 .tech-item i { font-size: 1.5rem; color: var(--primary); }
+.tech-item .bi-docker::before {
+  content: ''; display: inline-block; width: 1em; height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url('../img/docker.svg') center / contain no-repeat;
+  mask: url('../img/docker.svg') center / contain no-repeat;
+}
 .tech-item span { font-size: 0.76rem; font-weight: 600; color: var(--text-dim); }
 
 /* Delivery process horizontal */

@@ -170,7 +170,7 @@ include __DIR__ . '/includes/header.php';
         <div class="stats-ribbon-item">
           <div class="counter-icon-wrap"><i class="bi bi-emoji-smile"></i></div>
           <div class="counter-number-wrap">
-            <span class="counter-number" data-target="<?= (int) preg_replace('/[^0-9]/', '', $companyStats['satisfaction'] ?? '97') ?>">0</span><span class="counter-suffix">%</span>
+            <span class="counter-number" data-target="<?= (int) preg_replace('/[^0-9]/', '', $companyStats['satisfaction'] ?? '100') ?>">0</span><span class="counter-suffix">%</span>
           </div>
           <span>Client Satisfaction</span>
         </div>
@@ -210,11 +210,11 @@ include __DIR__ . '/includes/header.php';
       <div class="director-profiles-grid">
         <article class="director-profile-card">
           <div class="director-photo-wrap">
-            <img src="<?= asset('assets/img/directors/akash-raje.webp') ?>" alt="Akash Raje, Director at Websoftera">
+            <img src="<?= asset('assets/img/directors/akash-raje.webp') ?>" alt="Mr. Akash Raje, Director at Websoftera">
             <span class="director-photo-label"><i class="bi bi-patch-check-fill"></i> Director</span>
           </div>
           <div class="director-profile-copy">
-            <div class="director-identity"><strong>Akash Raje</strong><span>Director, Websoftera</span></div>
+            <div class="director-identity"><strong>Mr. Akash Raje</strong><span>Director, Websoftera</span></div>
             <blockquote>“Technology should solve real problems, create real value, & help businesses move forward. At Websoftera, we build with purpose, quality, & a long-term vision.”</blockquote>
           </div>
         </article>
